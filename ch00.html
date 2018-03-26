@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+    <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>Introduction</h3>
+	  <center>
+	    <a href="http://www.exploringdatascience.com/the-data-science-clock/">
+	      <img src="./images/The-Data-Science-Clock-v1.1.png" alt=" " style="width: 45%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>		
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="index.html">Introduction to data science</a> <br>
+	      </medium>
+	      <small>
+		Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a>
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Course intent</h3>
+	  <li class='fragment'>
+	    This is a first course in data science.
+	  </li>
+	  <li class='fragment'>
+	    It will provide an overview of most aspects of the discipline.
+	  </li>
+	  <li class='fragment'>
+	    This is a self-contained survey course with no prerequisites,
+	  </li>
+	  <li class='fragment'>
+	    with content organized through readings and class discussions.
+	  </li>	  
+	</section>
+
+	<section>
+	  <h3>Who should take this course?</h3>
+	  <li class='fragment'>
+	    Anyone. Data science is becoming pervasive.
+	  </li>
+	  <li class='fragment'>
+	    Any discipline where data is prevalent can benefit,
+	  </li>
+	  <li class='fragment'>
+	    and data is becoming prevalent in more and more places.
+	  </li>
+	  <li class='fragment'>
+	    As mentioned, there are no prerequisites.
+	  </li>
+	  <li class='fragment'>
+	    It is required for DS, IS, and CST majors, and DS minors.
+	  </li>
+	</section>
+	
+	<section>
+	  <h3>What will you get out of this course?</h3>
+	  <li class='fragment'>
+	    An overview of the skills that go into data science,
+	  </li>
+	  <li class='fragment'>
+	    and an understanding of the tasks undertaken in data science.
+	  </li>
+
+	  <ul>
+	    <li class='fragment'>Among other topics, this includes:
+	      <ul>
+		<li class='fragment'>
+		  what data is and where to find it,
+		</li>
+		<li class='fragment'>
+		  the differing work that gets done across the discipline,
+		</li>
+		<li class='fragment'>
+		  typical components of a data science project, and
+		</li>
+		<li class='fragment'>
+		  characterizations of &quot;Big data.&quot;
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>	
+
+
+	<section>
+	  <h3>If you want to see more of anything...<br>...take the major!</h3>
+	  
+	  <ul>
+	    <li class='fragment'>Programming and development
+	      <ul>
+		<li class='fragment'>
+		  Web Systems and Services I: INFO 151
+		</li>		
+		<li class='fragment'>
+		  Computer Programming I: CS 171
+		</li>
+		<li class='fragment'>
+		  Data Science Programming I &amp; II: INFO 212 &amp; 213
+		</li>
+		<li class='fragment'>
+		  Cloud Computing and Big Data: INFO 323
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  <br>	  <br>
+	  <ul>
+	    <li class='fragment'>Analysis and exploration
+	      <ul>
+		<li class='fragment'>
+		  Social Media Data Analysis: INFO 440
+		</li>
+		<li class='fragment'>
+		  Exploratory Data Analytics: INFO 311
+		</li>
+		<li class='fragment'>
+		  Advanced Data Analytics: INFO 411
+		</li>
+		<li class='fragment'>
+		  Data Mining Applications: INFO 371
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>	
+
+
+	<section>
+	  <h3>If you want to see more of anything...<br>...take the major!</h3>
+	  <ul>
+	    <li class='fragment'>Curation, management, and access
+	      <ul>
+		<li class='fragment'>
+		  Data Curation: INFO 202
+		</li>
+		<li class='fragment'>
+		  Applied Data Management: INFO 153
+		</li>
+		<li class='fragment'>
+		  Database Management Systems: INFO 210
+		</li>
+		<li class='fragment'>
+		  Information Retrieval Systems: INFO 300
+		</li>
+		<li class='fragment'>
+		  Introduction to Information Security: INFO 333
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>
+	</section>	
+
+
+	<section>
+	  <h3>If you want to see more of anything...<br>...take the major!</h3>
+	  <ul>
+	    <li class='fragment'>Design and visualization
+	      <ul>
+		<li class='fragment'>
+		  Information Visualization: INFO 250
+		</li>
+		<li class='fragment'>
+		  Human-Computer Interaction II: INFO 310
+		</li>		
+		<li class='fragment'>
+		  Visual Analytics: INFO 350
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  <br>	  <br>
+	  <ul>
+	    <li class='fragment'>Social aspects and collaboration
+	      <ul>
+		<li class='fragment'>
+		  Social Aspects of Information Systems: INFO  215
+		</li>
+		<li class='fragment'>
+		  Issues in Information Policy: INFO 216
+		</li>		
+		<li class='fragment'>
+		  Software project management: INFO 420
+		</li>
+		<li class='fragment'>
+		  Team Process and Product: INFO 324
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  
+	</section>	
+	
+	<section>
+	  <h3>Course structure</h3>
+	  <ul>
+	    <li class='fragment'>Overview:
+	      <ul>
+		<li class='fragment'>Blackboard Discussion (25%)</li>
+		<li class='fragment'>Four homework assignments (40%)</li>
+		<li class='fragment'>Two exams (40%)</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Discussion</h3>
+	  <ul>
+	    <li class='fragment'>For full credit:
+	      <ul>
+		<li class='fragment'>Write a 250-500 essay (several choices will be given)</li>
+		<li class='fragment'>Chime in thoughfully on another student's thread.</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3>Homework</h3>
+	  <ul>
+	    <li class='fragment'>For full credit:
+	      <ul>
+		<li class='fragment'>Complete your assignments in a timely fashion.</li>
+		<li class='fragment'>Make sure your responses are cogent and concise.</li>
+		<li class='fragment'>Think creatively about your responses.</li>
+		<li class='fragment'>Relate your experiences to the questions asked.</li>		
+		<li class='fragment'>Complete all required readings.</li>
+		<li class='fragment'>Participate in class discussions.</li>
+		<li class='fragment'>Ask questions and affirm your understanding.</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Exams</h3>
+	  <ul>
+	    <li class='fragment'>For full credit:
+	      <ul>
+                                    <li class='fragment'>Complete all required readings.</li>
+		<li class='fragment'>Get involved in the online discussions</li>
+		<li class='fragment'>Make sure your responses are cogent and concise.</li>
+		<li class='fragment'>Ask questions and affirm your understanding.</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Recap</h3>
+
+	  <li class='fragment'>
+	    Data science reaches into a lot of fields.
+	  </li>
+
+	  <li class='fragment'>
+	    This survey course is intended for everyone.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Up next, <a href="ch01.html">an overview</a>:
+	      <ul>
+		<li class='fragment'>
+		  What is data science?
+		</li>
+		<li class='fragment'>
+		  Who is a data scientist?
+		</li>
+		<li class='fragment'>
+		  What is data?
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>	
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>
