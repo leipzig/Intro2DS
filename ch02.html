@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 2</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+    <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>Life cycle</h3>
+	  <center>
+	    <a href="https://www.linkedin.com/pulse/data-science-project-lifecycle-maloy-manna-pmp-">
+	      <img src="./images/lifecycle.png" alt=" " style="width: 75%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>
+				
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="index.html">Introduction to data science</a> <br>
+	      </medium>
+	      <small>
+		Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Some themes</h3>
+
+	  <li class='fragment'>
+	    There is no set methodology for a data science success,
+	  </li>
+
+	  <li class='fragment'>
+	    but there are still best practices that can be followed.
+	  </li>
+
+	  <li class='fragment'>
+	    Regardless of results, double-check work,
+	  </li>
+
+	  <li class='fragment'>
+	    be certain of anything published, and who it impacts.
+	  </li>
+	  
+	</section>	
+	
+	
+	<section>
+	  <h3>The data science life cycle</h3>
+	  <li class='fragment'>Now that we have some grounding in data science. </li>
+	  <li class='fragment'>We'll focus a bit on how it is practiced. </li>
+	  <li class='fragment'>Like other disciplines, there is a process, </li>
+	  <li class='fragment'>but depending on the domain, we'll see it's variable. </li>	  
+	</section>	
+	
+	<section>
+	  <h3>Practicing data science</h3>
+	  <ul>
+	    <li class='fragment'> Some rules of thumb to overcome common challenges:
+	      <ul>
+		<li class='fragment'>Don't just assume, let the data speak.</li>
+		<li class='fragment'>Avoid ad-hoc explanations of data patterns.</li>
+		<li class='fragment'>Focus on communication for broad audiences.</li>
+		<li class='fragment'>Plan for the unexpected amidst noisy input data.</li>
+		<li class='fragment'>Beware the transition from prototype to product.</li>
+		<li class='fragment'>Take time to understand statistical procedures.</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Facebook is going to die?</h3>
+
+	  <center>
+	    <a href= "https://arxiv.org/pdf/1401.4208v1.pdf">
+	      <img src="./images/facebookDies.jpg" alt=" " style="width: 30%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  
+	  <ul>
+	    <li class='fragment'>One <a href="http://arxiv.org/pdf/1401.4208v1.pdf">example fail</a>:
+	      <ul>
+		<li class='fragment'>Princeton researchers discovered Google trends.</li>
+		<li class='fragment'>They saw patterns for the terms: &quot;MySpace&quot; and &quot;Facebook.&quot;</li>		
+		<li class='fragment'>They applied an infection model to search-term data.</li>
+		<li class='fragment'>Conclusion: MySpace failed, and both fit the model,</li>
+		<li class='fragment'>so Princeton predicted Facebook would collapse by 2018.</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>No, Princeton will dissappear!</h3>
+
+	  <center>
+	    <a href="https://www.facebook.com/notes/mike-develin/debunking-princeton/10151947421191849">
+	      <img src="./images/PrincetonPubs.jpg" alt=" " style="width: 55%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>	  
+	  
+	  <li class='fragment'>There are many more profitability indicators than search terms.</li>
+	  <li class='fragment'>The Princeton research was spurious and splashy.</li>	  	  
+	  <ul>
+	    <li class='fragment'>Facebook eventually <a href="https://www.facebook.com/notes/mike-develin/debunking-princeton/10151947421191849">struck back</a>!
+	      <ul>		
+		<li class='fragment'>Applying the great theory of correlation => causation,</li>
+		<li class='fragment'>Facebook concluded Princeton would disappear!</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>			
+
+	<section>
+	  <h3>There should still be a scientific method</h3>
+	  <center>
+	    <a href="https://www.linkedin.com/pulse/data-science-project-lifecycle-maloy-manna-pmp-">
+	      <img src="./images/lifecycle.png" alt=" " style="width: 75%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+
+	<section>
+	  <h3>Naturally, this is close to CRISP-DM</h3>
+	  <center>
+	    <a href="https://en.wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining">
+	      <img src="./images/CRISP-DM.png" alt=" " style="width: 50%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Differing scientific methodologies</h3>
+	  <li class='fragment'>
+	    Data science projects have differing needs,
+	  </li>	  
+	  <li class='fragment'>
+	    and these are, of course, only guides.
+	  </li>	  
+	  <li class='fragment'>
+	    Ultimately goals, customers, and data specifics set directions,
+	  </li>	  
+	  <li class='fragment'>
+	    and the context of the work shapes time spent in differnt areas,
+	  </li>	  
+	  <li class='fragment'>
+	    e.g., a commercial data product vs. an academic development.
+	  </li>
+	</section>	
+	
+	<section>
+	  <h3>Similar tasks in a &quot;work flow&quot;</h3>
+	  <center>
+	    <a href="http://cacm.acm.org/blogs/blog-cacm/169199-data-science-workflow-overview-and-challenges/fulltext">
+	      <img src="./images/rp-overview.jpg" alt=" " style="width: 75%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Required readings</h3>
+
+	  > <a href="http://101.datascience.community/tag/lifecycle/">Differences for Building data products</a>
+	  <br>
+	  > <a href="https://en.wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining">CRISP-DM</a>
+	  <br>
+	  > <a href="https://www.linkedin.com/pulse/data-science-project-lifecycle-maloy-manna-pmp-">The Data science project lifecycle</a>
+	  <br>
+	  > <a href="http://cacm.acm.org/blogs/blog-cacm/169199-data-science-workflow-overview-and-challenges/fulltext"> A data science work flow</a>	    <br><br>
+
+	  Next: we'll go into some lifecycle specifics
+	</section>
+	
+	<section>
+	  <h3>Acquisition</h3>
+
+	  <li class='fragment'> Traditionally questions come first with no data to start, </li>
+	  <li class='fragment'> but data often comes first, and scientists are forced to ask: <br><br>
+	    <center>
+	      &quot;What questions can be approached with the data on hand?&quot;
+	    </center>
+	    <br>
+	  </li>
+
+	  <li class='fragment'> Regardless of the context, acquiring data is necessary. </li>
+	  <li class='fragment'> If a project is company led, data may be internal <br> (making acquisition easy). </li>	  
+	  <li class='fragment'> Even if internal data is present, external data can be necessary. </li>
+	  <li class='fragment'> It's always important to get imaginative about what data can be, </li>
+	  <li class='fragment'> especially when data is unstructured! </li>
+	  
+	</section>
+
+	<section>
+	  <h3>Preparation</h3>
+
+	  <li class='fragment'>
+	    A <a href="https://codingvc.com/talk-summary-building-great-data-products">quote</a> from a co-coiner of the term &quot;data scientist:&quot;
+	    <br><br>
+	    <center>
+	      The hardest part of data science is getting good, clean data. Cleaning data is often 80% of the work.
+	    </center>
+	    <br>
+	  </li>
+	  
+	  <ul>
+	    <li class='fragment'>Frequently, data does not come in a convenient form:
+	      <ul>
+		<li class='fragment'> it can be structured or unstructured, </li>
+		<li class='fragment'> may be factored with dependent records, </li>
+		<li class='fragment'> may be in the wrong units, rife with NAs, </li>
+		<li class='fragment'> or even just spread across multiple sources. </li>		
+	      </ul>
+	    </li>
+	  </ul>
+
+	  <li class='fragment'>
+	    Structuring, consolidation, removing NAs, and joining rows
+	  </li>
+	  <li class='fragment'>
+	    are all part of the data preparation process.
+	  </li>
+	  <li class='fragment'>
+	    But it's not just about cleaning data,
+	  </li>
+	  <li class='fragment'>
+	    e.g., this includes building a network model from tweets.
+	  </li>			  
+	  
+	</section>
+
+	<section>
+	  <h3>Modeling and hypothesis</h3>
+
+	  <li class='fragment'>
+	    These are very traditional steps.
+	  </li>
+	  <li class='fragment'>
+	    However, for data science there is an important caveat.
+	  </li>
+	  <li class='fragment'>
+	    Data often comes first, so it paramount to &quot;explore.&quot;
+	  </li>
+	  <li class='fragment'>
+	    This is called &quot;exploratory data analysis&quot; (EDA).
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'>Some rules of thumb:
+	      <ul>
+		<li class='fragment'> explore first with descriptive analyses and figures </li>		
+		<li class='fragment'> characterize data from every angle </li>		
+		<li class='fragment'> decide what questions might be answereable </li>
+		<li class='fragment'> review models that can confirm/deny hypotheses </li>
+		<li class='fragment'> choose models are practical to implement </li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Evaluation and interpretaion</h3>
+
+	  <li class='fragment'>
+	    In this step a model is applied or an analysis is run.
+	  </li>
+	  <li class='fragment'>
+	    This might take several attempts before completion.
+	  </li>
+	  <li class='fragment'>
+	    Interpretation should never be taken lightly.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'>Some good practices:
+	      <ul>
+		<li class='fragment'> test initially on a little data you know inside and out, </li>
+		<li class='fragment'> and make lots of sanity checks&mdash;is it working? </li>
+		<li class='fragment'> always save output and visualize separately </li>
+		<li class='fragment'> focus closely on model tuning and interpretation</li>
+		<li class='fragment'> does the output appear as expected?</li>
+		<li class='fragment'> if yes, then double-check that all code is correct</li>
+		<li class='fragment'> if no, then still double-check for broken code</li>
+		<li class='fragment'> but really focus hard on interpretation, </li>
+		<li class='fragment'> because unexpected results can be the most impactful! </li>
+	      </ul> 
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Deployment</h3>
+
+	  <li class='fragment'>Deployment is especially relevant in product development.</li>
+	  <li class='fragment'>This stage let's an intended audience explore a product.</li>
+
+	  <li class='fragment'>
+	    A <a href="https://codingvc.com/talk-summary-building-great-data-products">quote</a> from the same co-coiner:
+	    <br><br>
+	    <center>
+	      Unfortunately, the best way to test data products is in production.
+	    </center>
+	    <br>
+	  </li>
+	  
+	  <ul>
+	    <li class='fragment'> Some good practices:
+	      <ul>
+		<li class='fragment'> start with a pilot program </li>
+		<li class='fragment'> set low expectations for users </li>
+		<li class='fragment'> start with limited functionality </li>
+		<li class='fragment'> clean and simple pays off at the start </li>
+		<li class='fragment'> documentation can save a lot of headaches </li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Operations</h3>
+
+	  <li class='fragment'> Operations are an essential foil to deployment. </li>
+	  <li class='fragment'> Here, a product is managed through regular use. </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Some good practices:
+	      <ul>
+		<li class='fragment'> make sure users can report problems </li>
+		<li class='fragment'> make sure someone is regularly checking reports </li>
+		<li class='fragment'> focus on minimizing reported product friction </li>		
+		<li class='fragment'> if a product breaks, go back and adjust the pipeline</li>
+		<li class='fragment'> update documentation reflect product changes </li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3>Optimization</h3>
+
+	  <li class='fragment'> Optimization is likely more sporadic (once again for products). </li>
+	  <li class='fragment'> It may occur as a result of user-base growth, </li>	  
+	  <li class='fragment'> or perhaps a change in technology, knowledge, or competition. </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'>Some good practices:
+	      <ul>
+		<li class='fragment'>keep track of the market and competition</li>
+		<li class='fragment'>stay current on methods and technology</li>		
+		<li class='fragment'>monitor growing user bases and their impact on the system</li>
+		<li class='fragment'>stay current with design</li>
+		<li class='fragment'>always look for efficiencies</li>
+		<li class='fragment'>don't leave around unused features</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Recap</h3>
+
+	  <li class='fragment'>
+	    There is no set methodology for a data science success,
+	  </li>
+
+	  <li class='fragment'>
+	    but there are still best practices that can be followed.
+	  </li>
+
+	  <li class='fragment'>
+	    Regardless of results, double-check work,
+	  </li>
+
+	  <li class='fragment'>
+	    be certain of anything published, and who it impacts.
+	  </li>
+	  
+	  <br>
+	  <ul>
+	    <li class='fragment'> Up next, <a href="ch03.html">all about data</a>:
+	      <ul>
+		<li class='fragment'>
+		  Overview of types of data.
+		</li>
+		<li class='fragment'>
+		  What makes different types different?
+		</li>
+		<li class='fragment'>
+		  How organization defines data.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>	
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>

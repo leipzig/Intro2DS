@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 1</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+    <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>Overview</h3>
+	  <center>
+	    <img src="./images/Modern-Data-Scientist-1.jpeg" alt=" " style="width: 45%;max-height: 100%;object-fit: contain;Float: center" />
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>
+				
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="index.html">Introduction to data science</a> <br>
+	      </medium>
+	      <small>
+		Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Some themes</h3>
+
+	  <li class='fragment'>
+	    Data science is mixture of disciplines, centered on data.
+	  </li>
+
+	  <li class='fragment'>
+	    Not all data scientists have the same skills,
+	  </li>
+
+	  <li class='fragment'>
+	    and data science folks perform a variety of tasks,
+	  </li>
+
+	  <li class='fragment'>
+	    so many opinions exist as to what data science is.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Teams are important.
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    Data science has been around longer than the name.
+	  </li>
+
+	</section>	
+
+	<section>
+	  <h3>What is data science?</h3>
+
+	  <li class='fragment'>
+	    Data science takes on a variety of shapes and forms.
+	  </li>	  
+
+	  <li class='fragment'>
+	    This requires a hybrid skill set.
+	  </li>	  
+
+	  <li class='fragment'>
+	    Practitioners have varying levels of skills in different areas...
+	  </li>
+
+	  <li class='fragment'>
+	    ...but generally some broad knowledge of the field.
+	  </li>	  
+
+	  <li class='fragment'>
+	    Let's look at a few common positions in the industry.
+	  </li>	  	  
+	</section>	
+
+	<section>
+	  <section style="text-align: center;">
+	    <h3>
+	      A look at some roles (scroll down)
+	    </h3>
+	    <br>
+	    <div style="height: 800px">
+	      <a href="https://www.datacamp.com/community/tutorials/data-science-industry-infographic#gs.Tdx315Q">
+		<img src="./images/scientist.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	      </a>
+	    </div>
+	  </section>
+	  <section style="text-align: center;">
+	    <h3>
+	      A look at some roles
+	    </h3>
+	    <br>
+	    <div style="height: 800px">
+	      <a href="https://www.datacamp.com/community/tutorials/data-science-industry-infographic#gs.Tdx315Q">
+		<img src="./images/analyst.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	      </a>
+	    </div>
+	  </section>
+	  <section style="text-align: center;">
+	    <h3>
+	      A look at some roles
+	    </h3>
+	    <br>
+	    <div style="height: 800px">
+	      <a href="https://www.datacamp.com/community/tutorials/data-science-industry-infographic#gs.Tdx315Q">
+		<img src="./images/architect.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	      </a>
+	    </div>
+	  </section>
+	  <section style="text-align: center;">
+	    <h3>
+	      A look at some roles
+	    </h3>
+	    <br>
+	    <div style="height: 800px">
+	      <a href="https://www.datacamp.com/community/tutorials/data-science-industry-infographic#gs.Tdx315Q">
+		<img src="./images/engineer.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	      </a>
+	    </div>
+	  </section>
+	  <section style="text-align: center;">
+	    <h3>
+	      A look at some roles
+	    </h3>
+	    <br>
+	    <div style="height: 800px">
+	      <a href="https://www.datacamp.com/community/tutorials/data-science-industry-infographic#gs.Tdx315Q">
+		<img src="./images/statistican.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	      </a>
+	    </div>
+	  </section>
+	  <section style="text-align: center;">
+	    <h3>
+	      A look at some roles
+	    </h3>
+	    <br>
+	    <div style="height: 800px">
+	      <a href="https://www.datacamp.com/community/tutorials/data-science-industry-infographic#gs.Tdx315Q">
+		<img src="./images/DBA.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	      </a>
+	    </div>
+	  </section>
+	  <section style="text-align: center;">
+	    <h3>
+	      A look at some roles
+	    </h3>
+	    <br>
+	    <div style="height: 800px">
+	      <a href="https://www.datacamp.com/community/tutorials/data-science-industry-infographic#gs.Tdx315Q">
+		<img src="./images/bus_analyst.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	      </a>
+	    </div>
+	  </section>
+	  <section style="text-align: center;">
+	    <h3>
+	      A look at some roles
+	    </h3>
+	    <br>
+	    <div style="height: 800px">
+	      <a href="https://www.datacamp.com/community/tutorials/data-science-industry-infographic#gs.Tdx315Q">
+		<img src="./images/manager.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	      </a>
+	    </div>
+	  </section>
+	  <section style="text-align: center;">
+	    <h3>
+	      A look at their pay scales
+	    </h3>
+	    <div style="height: 800px">
+	      <a href="https://www.datacamp.com/community/tutorials/data-science-industry-infographic#gs.Tdx315Q">
+		<img src="./images/salary.png" alt=" " style="width: 80%;max-height: 100%;object-fit: contain;Float: center" />
+	      </a>
+	    </div>
+	  </section>
+	</section>
+
+	<section>
+	  <h3>So, what is data science?</h3>
+	  <ul>
+	    <li class='fragment'> It's kind of hard to find concise and general responses, so I'll try:<br>
+	      <ul>
+		<li class='fragment'>
+		  Computationally-enabled, domain-dependent science centered around data management, analysis, and products.
+		</li>
+		<br>
+	      </ul>
+	    </li>
+	  </ul>
+	  <li class='fragment'>
+	    What separates this from definitions of related disciplines,
+	    like computer and information science, mathematics, statistics, business analytics, or software engineering?
+	  </li>	  
+	</section>
+
+	<section>
+	  <h3>Required reading:
+	    <a href="http://www.cbigconsulting.com/wp-content/uploads/2014/03/data-scientist.pdf">What is data science?</a>
+	  </h3>
+	  <!-- This article is written by a business intelligence and data analytics consulting firm. -->
+	</section>
+	
+	<section>
+	  <h3>So, what is data science?</h3>
+	  <ul>
+	    <li class='fragment'> Here's Wikipedia's (as of 10/21/2016):<br>
+	      <ul>
+		<li class='fragment'>
+		  Data science is an interdisciplinary field about
+		  processes and systems to extract knowledge or insights from data in various forms,
+		  either structured or unstructured,
+		  which is a continuation of some of the data analysis fields
+		  such as statistics, machine learning, data mining, and predictive
+		  analytics, similar to Knowledge Discovery in Databases (KDD).
+		</li>
+		<br>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>So, what is data science?</h3>
+	  <ul>
+	    <li class='fragment'> Jonathan Sedar (a DS consultant) de-emphasizes the field's independence:<br>
+	      <ul>
+		<li class='fragment'>
+		  The term 'data science' is a useful shortcut to
+		  describe the recent confluence and evolution of several previously distinct disciplines,
+		  made possible by an increasing availability of data and sophistication of high quality open source software,
+		  decreasing costs of hardware and data processing,
+		  intense academic research and massive commercial and industrial interests.
+		</li>
+		<br>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Required reading:
+	    <a href="http://blog.applied.ai/what-is-data-science/">What is data science?</a>
+	  </h3>
+	</section>
+	
+	<section>
+	  <h3>So, what is data science?</h3>
+	  <ul>
+	    <li class='fragment'> Josh Wills, Senior Director of Data Science at Cloudera:<br>
+	      <ul>
+		<li class='fragment'>
+		  Someone better at statistics than any software engineer, and someone better at software engineering than any statistician.
+		</li>
+		<br>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Required reading:
+	    <a href="https://s3.amazonaws.com/leada/handbook/Handbook_Pt1.pdf">Josh Wills section of the Data Analytics Handbook, Part I (pg. 8)</a>
+	  </h3>
+	</section>	
+
+	<section>
+	  <h3>So, what is data scientist?</h3>
+	  <ul>
+	    <li class='fragment'>O'Neil and Schutt's academic practitioner:<br>
+	      <ul>
+		<li class='fragment'>
+		  ...an academic data scientist is a scientist,
+		  trained in anything from social science to biology,
+		  who works with large amounts of data,
+		  and must grapple with computational problems posed by the
+		  structure, size, messiness, and the complexity and nature of the data,
+		  while simultaneously solving a real-world problem.
+		</li>
+		<br>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>So, what is a data scientist?</h3>
+	  <ul>
+	    <li class='fragment'> O'Neil and Schutt's industry practitioner:<br>
+	      <ul>
+		<li class='fragment'>
+		  A chief data scientist should be setting the data strategy of the company,
+		  which involves a variety of things:
+		  setting everything up from the engineering and infrastructure
+		  for collecting data and logging, to privacy concerns,
+		  to deciding what data will be user-facing,
+		  how data is going to be used to make decisions,
+		  and how it’s going to be built back into the product.
+		  She should manage a team of engineers, scientists, and analysts and
+		  should communicate with leadership across the company, including the CEO, CTO, and product leadership.
+		  She’ll also be concerned with patenting innovative solutions and setting research goals.
+		</li>
+		<br>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Required reading:
+	    <a href="http://cdn.oreillystatic.com/oreilly/booksamplers/9781449358655_sampler.pdf">Pages 1&ndash;16 of O'Neil and Schutt's book.</a>
+	  </h3>
+	  <center>
+	    The link points to a sampler of the book that covers pages 1&ndash;16.
+	    The book, whole, is not a required text, but is a good resource
+	    for those of you who want to go on in the field.
+	  </center>
+	</section>	
+	
+	<section>
+	  <h3>So, what is a data scientist?</h3>
+
+	  <li class='fragment'>
+	    The important take-away is probably 'a mixture of skills.'
+	  </li>
+
+	  <li class='fragment'>
+	    In a way, data scientists 'glue' disciplines together.
+	  </li>
+
+	  <li class='fragment'>
+	    This is a good way to think about DS programming.
+	  </li>
+
+	  <li class='fragment'>
+	    While new algorithms are always needed for DS advancement <br>
+	    (and data some scientists are heavy on algorithms development),
+	  </li>
+
+	  <li class='fragment'>
+	    DS programmers usually 'glue' things together.
+	  </li>
+
+	  <li class='fragment'>
+	    This is a central concept for the terminology 'pipeline.'
+	  </li>
+
+	  <li class='fragment'>
+	    Let's look at some representations of the DS skill mixture.
+	  </li>
+	  
+	</section>
+	
+	<section>
+	  <h3>Required reading: <a href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram">Conway's Venn diagram.</a></h3>
+	  <center>
+	    <a href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram">
+	      <img src="./images/Data_Science_VD.jpg" alt=" " style="width: 50%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+
+	<section>
+	  <h3>Required reading: <a href="http://datascienceassn.org/content/fourth-bubble-data-science-venn-diagram-social-sciences">A fourth bubble?</a></h3>
+	  <center>
+	    <a href="http://datascienceassn.org/content/fourth-bubble-data-science-venn-diagram-social-sciences">
+	      <img src="./images/FourthBubble.png" alt=" " style="width: 60%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+
+	<section>
+	  <h3>
+	    On &quot;the data science spectrum&quot;
+	  </h3>
+	  <li class='fragment'>
+	    A good way to characterize the whole field is as a spectrum.
+	  </li>	  
+	  <li class='fragment'>
+	    There are a number of specalties that are &quot;on the spectrum,&quot;
+	  </li>	  
+	  <li class='fragment'>
+	    and depending on individuals' paricular DS &quot;profiles,&quot;
+	  </li>
+	  <li class='fragment'>
+	    responsibilities and pay grades will vary.
+	  </li>
+	  <li class='fragment'>
+	    The best approach as a student, is to identify your interests,
+	  </li>
+	  <li class='fragment'>
+	    and to understand where they will lead you in the job market.
+	  </li>
+	</section>
+	
+	<section>
+	  <h3>
+	    Required reading: <a href="http://www.forbes.com/sites/rawnshah/2015/10/06/data-science-falls-into-many-roles/#8ca911b35f8d">Job titles and pay</a>
+	  </h3>	  
+	  <center>
+	    <img src="./images/fig2-datascience-bytitle.png" alt=" " style="width: 70%;max-height: 100%;object-fit: contain;Float: center" />
+	  </center>
+	</section>	
+	
+	<section>
+	  <h3>Moving over to some history</h3>
+	  <ul>
+	    <li class='fragment'>Many core concepts are attributable to J.W. Tukey,<br>
+	       in <a href="https://projecteuclid.org/download/pdf_1/euclid.aoms/1177704711">The Future of Data Analysis (read the introduction)</a>:
+	      <ul>
+		<li class='fragment'>
+		  &quot;For a long time I thought I was a statistician,
+		  interested in inferences from the particular to the general.
+		  But as I have watched mathematical statistics evolve,
+		  I have had cause to wonder and doubt...
+		  I have come to feel that my central interest is in data analysis...
+		  Data analysis, and the parts of statistics which adhere to it, must...
+		  take on the characteristics of science rather than those of mathematics...
+		  data analysis is intrinsically an empirical science...
+		  How vital and how important...
+		  is the rise of the stored-program electronic computer?
+		  In many instances the answer may surprise many by being 'important but not vital,'
+		  although in others there is no doubt but what the computer has been 'vital.'&quot;
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Milestones in formality</h3>
+	  <ul>
+	    <li class='fragment'>A time line of some highlights:
+	      <ul>
+		<li class='fragment'>1962 - Tukey's paper <a href="https://projecteuclid.org/euclid.aoms/1177704711">The Future of Data Analysis</a></li>		
+		<li class='fragment'>1977 - Intl. Association for Statistical Computing (<a href="http://www.iasc-isi.org/">IASC</a>, society)</li>
+		<li class='fragment'>1989 - Knowledge Discovery in Databases (<a href="http://www.kdd.org/">KDD</a>, workshop)</li>
+		<li class='fragment'>1997 - Knowledge Discovery and Data Mining (<a href="http://link.springer.com/journal/10618">KDD</a>, journal)</li>
+		<li class='fragment'>2002 - <a href="http://datascience.codata.org/">Data Science Journal</a></li>
+		<li class='fragment'>2003 - <A href="http://www.jds-online.com/">Journal of Data Science</a></li>
+		<li class='fragment'>2005 - The National Science Board <a href="http://www.nsf.gov/pubs/2005/nsb0540/">recognizes data science</a></li>
+		<li class='fragment'>2008 - Nate Silver creates <a href="http://fivethirtyeight.com/"> FiveThirtyEight </a></li>
+		<li class='fragment'>2010 - Drew Conway's <a href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram">Data Science Venn Diagram</a></li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3>Data scientists love (using) infographics</h3>
+	  <center>
+	    <img src="./images/History-of-Data-Science.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center"/>
+	  </center>
+
+	</section>	
+
+	<section>
+	  <h3>
+	    More information on the history of DS
+	  </h3>	  
+	  <ul>
+	    <li class='fragment'>Required readings:
+	      <ul>
+		<li class='fragment'><a href="http://www.forbes.com/sites/gilpress/2013/05/28/a-very-short-history-of-data-science/#133f17db69fd">Forbes timeline</a></li>
+		<li class='fragment'>
+		  <a href="https://en.wikibooks.org/wiki/Data_Science:_An_Introduction/A_History_of_Data_Science#Discussion">
+		    Wikibook's history (just the discussion section)
+		  </a>
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>	
+	
+	<section>
+	  <h3>So, what is data science good for?</h3>
+	  <ul>
+	    <li class='fragment'>Examples of data science products:
+	      <ul>
+		<li class='fragment'>effective web search</li>
+		<li class='fragment'>recommender systems</li>
+		<li class='fragment'>elections prediction</li>
+		<li class='fragment'>detecting disease outbreaks</li>
+		<li class='fragment'>targeted electronic advertisement</li>
+		<li class='fragment'>image recognition</li>
+		<li class='fragment'>fraud and risk detections</li>
+		<li class='fragment'>price comparison tools</li>
+		<li class='fragment'>weather forecasting</li>
+		<li class='fragment'>dynamic pricing</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>And where does data come from?</h3>
+	  <li class='fragment'>
+	    Let's group data sources according to active agency.
+	  </li>
+	  <li class='fragment'>
+	    Note: when we think about examples, we'll see some overap.
+	  </li>	  
+	  <ul>
+	    <li class='fragment'>A few clear sources are:
+	      <ul>
+		<li class='fragment'>human: solicited, behavioral, social, and physical</li>
+		<li class='fragment'>machine: survaylence, sensory, communicative</li>
+		<li class='fragment'>nature: behavioral, social, and physical</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  
+	</section>
+	
+	<section>
+	  <h3>Human-generated data</h3>
+
+	  <li class='fragment'>Some human-generated data is traditional.</li>
+	  <li class='fragment'>Solicited (survey) data is particular to humans is tried and true.</li>
+
+	  <ul>
+	    <li class='fragment'> There's also the physical data, e.g., 
+	      <ul>
+		<li class='fragment'>heartrate, body chemistry, genome,</li>
+		<li class='fragment'>height, weight, eye color, etc.</li>
+	      </ul>
+	    </li>
+	  </ul>	 
+
+	  <li class='fragment'>And now there are electronic ways for recording most of these.</li>	  
+	  
+	</section>
+	
+	<section>
+	  <h3>Human-generated data</h3>
+
+	  <li class='fragment'>
+	    What's really new are the social and behavioral sources.
+	  </li>	  
+	  
+	  <ul>
+	    <li class='fragment'> Some online behavioral sources include:
+	      <ul>
+		<li class='fragment'>every click, visit, form filled,</li>
+		<li class='fragment'>basket loaded, transaction processed</li>
+		<li class='fragment'>search, filter, ad impression,</li>
+		<li class='fragment'>fast-forward, pause, and rewind.</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  <br> <br>
+	  <ul>
+	    <li class='fragment'> Some online social sources include:
+	      <ul>
+		<li class='fragment'>Facebook, Twitter, Instagram, LinkedIn, and YouTube, etc.,</li>
+		<li class='fragment'>where text, image, video, and audio data are produced.</li>
+		<li class='fragment'>they all allow for directed conversations&mdash;networks!</li>
+	      </ul>
+	    </li>
+	  </ul>
+ 
+	</section>
+
+	<section>
+	  <h3>Machine-generated data</h3>
+	  <ul>
+	    <li class='fragment'>From one perspective, machines produce nearly all modern data:
+	      <ul>
+		<li class='fragment'>Sensors are ever becoming ubiquitous.</li>
+		<li class='fragment'>They measure meteorlogical and seismic information,</li>
+		<li class='fragment'>and monitor video and sound with cameras and microphones.</li>
+		<li class='fragment'>On people, there are watches, phones, and even pacemakers.</li>
+		<li class='fragment'>In homes, there are fire and entry alarms.</li>
+		<li class='fragment'>Lights, thermostats, washers, and dryers control themselves,</li>
+		<li class='fragment'>meaning these (and self driving cars) can be hacked!</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>
+	    Required reading: <br> <a href="https://www.wired.com/insights/2014/11/the-internet-of-things-bigger/"> The internet of things (IoT)</a>
+	  </h3>	  
+	</section>	
+
+	<section>
+	  <h3>The internet of things</h3>
+	  <ul>
+	    <li class='fragment'>Let's list some core concepts to the IoT:
+	      <ul>
+		<li class='fragment'> machine to machine (M2M) interaction, </li>
+		<li class='fragment'> nature or human-independent activity, </li>
+		<li class='fragment'> local sensing, and </li>
+		<li class='fragment'> remote communication. </li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>	
+
+	<section>
+	  <h3>What's human, natural, or machine?</h3>
+	  <li class='fragment'>What part of heart-rates and seismic events are machine? </li>
+	  <li class='fragment'>Just because my smart watch is in the IoT </li>
+	  <li class='fragment'>doesn't mean my heart rate is machine-generated data, right?? </li>	  
+	  <ul>
+	    <li class='fragment'> It's the independent and coordinated machine actions, e.g.,
+	      <ul>
+		<li class='fragment'> the closure of an unattended parking garage at capacity, </li>
+		<li class='fragment'> an automatic defibrillation from a sensed cardiac episode,</li>
+		<li class='fragment'> the automatic pre-heating of your over to 375 degrees </li>
+		<li class='fragment'> when it realizes the microwave was set to defrost a turkey,</li>		
+		<li class='fragment'> the dynamic pricing of Uber cabs in a surge, or</li>
+		<li class='fragment'> the automatic shut-down of a power plant in an earthquake.</li>
+	      </ul>
+	    </li>
+	  </ul>	  
+	</section>
+	
+	<section>
+	  <h3>Recap</h3>
+
+	  <li class='fragment'>
+	    Data science is mixture of disciplines, centered on data.
+	  </li>
+
+	  <li class='fragment'>
+	    Not all data scientists have the same skills,
+	  </li>
+
+	  <li class='fragment'>
+	    and data science folks perform a variety of tasks,
+	  </li>
+
+	  <li class='fragment'>
+	    so many opinions exist as to what data science is.
+	  </li>	  
+
+	  <li class='fragment'>
+	    Teams are important.
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    Data science has been around longer than the name.
+	  </li>
+
+	  <br>
+	  <ul>
+	    <li class='fragment'> Up next, <a href="ch02.html">executing data science</a>:
+	      <ul>
+		<li class='fragment'>
+		  Data science as a process
+		</li>
+		<li class='fragment'>
+		  A DS project life cycle
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>	
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>
