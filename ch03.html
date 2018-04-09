@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 3</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+    <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>Data types</h3>
+	  <center>
+	    <img src="./images/data-types.png" alt=" " style="width: 90%;max-height: 100%;object-fit: contain;Float: center" />
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>
+				
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="index.html">Introduction to data science</a><br>
+	      </medium>
+	      <small>
+		Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Some themes</h3>
+
+	  <li class='fragment'>
+	    There are many different types of data,
+	  </li>
+
+	  <li class='fragment'>
+	    which can be quite similar if looked at closely,
+	  </li>
+	  
+	  <li class='fragment'>
+	    but type is oftern determined by purpose or perspective.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Data organization can be as important as the data iteself.
+	  </li>
+
+	  <li class='fragment'>
+	    Every type of data presents its own unique challenges.
+	  </li>  
+
+	</section>	
+
+	<section>
+	  <h2>A taxonomy of data types?</h2>
+	  <center>
+	    <img src="./images/data-types.png" alt=" " style="width: 60%;max-height: 100%;object-fit: contain;Float: center" /> <br>
+	    The cover picture is a cartoon, intended to help map out what different data types are.
+	    In reality, data types overlap, with blurry boundaries that
+	    often depend more on context, use, and mode of analysis.
+	    For a related discussion, check out <a href="https://en.wikipedia.org/wiki/Level_of_measurement">levels of measurement</a>.
+	  </center>
+	</section>
+
+	<section>
+	  <h3>Structured</h3>
+	  <li class='fragment'> Organized, well-formed data, sometimes a term for database.</li>
+	  <li class='fragment'> This includes structured data objects.</li>
+	  <li class='fragment'> If referring to an individual datum, then categorical or numeric. </li>
+	  <li class='fragment'> There is generally some expectation of order and organization. </li>
+	  <ul>
+	    <li class='fragment'> Some examples:
+	      <ul>
+		<li class='fragment'>
+		  Structured data formats, e.g., xml, json, csv, tsv <br> (not necess. the contents).
+		</li>
+		<li class='fragment'>
+		  Language-specific data objects, e.g., dict, list, tree <br> (not necess. the contents).
+		</li>
+		<li class='fragment'>
+		  Categorical elements (types), e.g., gender, party, shape
+		</li>
+		<li class='fragment'>
+		  Numerical elements (quantities), e.g., price, time, dimension
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Unstructured</h3>
+	  <li class='fragment'> Raw, messy data, often of a high-level nature.</li>
+	  <li class='fragment'> Requires parsing or object/pattern recognition.</li>
+	  <li class='fragment'> Usually, high-level impressions of human or natural phenomena. </li>
+	  <li class='fragment'> These types require more preprocessing steps. </li>
+	  <ul>
+	    <li class='fragment'> Some examples:
+	      <ul>
+		<li class='fragment'>
+		  Unstructured data formats, e.g., txt, mov, wav, mp3, w4, png.
+		</li>
+		<li class='fragment'>
+		  Encodings: utf-8 (text); rgb pixels (images); waveform, pitch, and intensity (audio)
+		</li>
+		<li class='fragment'>
+		  Video is just ordered and aligned frames of image and audio.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+
+	<section>
+	  <h3>Required reading:	<a href="https://datascience.berkeley.edu/structured-unstructured-data/">Structured vs. unstructured data</a><br></h3>
+	</section>
+
+	<section>
+	  <h3>Bits and bytes</h3>
+	  <li class='fragment'> Electronic information is stored as binary switches&mdash;0s and 1s.</li>
+	  <li class='fragment'> A single switch is called a bit.</li>
+	  <li class='fragment'> These switches come in packets of eight, called bytes.</li>
+	  <li class='fragment'> How many ways are there to configure one byte?</li>
+	  <li class='fragment'> They are ordered, so the answer is:
+	    <script type="math/tex; mode=display">
+	      2^8 = 256
+	    </script>	  
+	  </li>
+ 	  <li class='fragment'> Let's look at how bytes make up different data types.</li>
+	</section>
+
+	<section>
+	  <h3>Numbers</h3>
+	  <li class='fragment'> For computers, there are two main types of numeric data.</li>
+	  <li class='fragment'> These are integers and floating point numbers.</li>
+	  <li class='fragment'> &quot;Ints&quot; are positive and negative counting numbers,</li>
+	  <li class='fragment'> and &quot;floats&quot; are decimal numbers.</li>
+	  <li class='fragment'> Int byte allotments depend on size and programming language.</li>
+	  <li class='fragment'> Floats take up 4 or 8 bytes, depending on the precision level.</li>	  
+	  <li class='fragment'> Integers are always exact, while floats can be approximate.</li>
+ 	  <li class='fragment'> This means big ints can take up more space than big floats!</li>
+	  <li class='fragment'> For counting and indexing, use ints.</li>
+	  <li class='fragment'> For for math and calculation, use floats.</li>
+	</section>
+
+	<section>
+	  <h3>Text</h3>
+	  <center>
+	    <a href="http://alandavies.org/blog/2014/10/on-character-encodings/">
+	      <img src="./images/code_points.jpg" alt=" " style="width: 85%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>	  
+	</section>
+	
+	<section>
+	  <h3>Text</h3>
+	  <li class='fragment'> Natural languaue texts are sequences of symbols.</li>
+	  <li class='fragment'> There is no such thing as &quot;plain text.&quot; </li>
+	  <li class='fragment'> How are individual symbols represented (encoded)?</li>	  
+	  <li class='fragment'> As sequences of bytes!</li>
+	  <ul>
+	    <li class='fragment'> How many?
+	      <ul>
+		<li class='fragment'>
+		  It's actually variable, which took a lot of trouble to figure out.
+		</li>
+		<li class='fragment'>
+		  Originally, the English-centric world stuck to single bytes (ASCII),
+		</li>		
+		<li class='fragment'>
+		  but only seven bits were used, 
+		</li>
+		<li class='fragment'>
+		  and other languages stuck their characters in.
+		</li>
+		<li class='fragment'>
+		  This caused incompatibilities, <a href="https://en.wikipedia.org/wiki/Unicode#History"> consortia were held </a>,
+		</li>
+		<li class='fragment'>
+		  which led to the modern standard: utf-8.
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Required reading:	<a href="http://alandavies.org/blog/2014/10/on-character-encodings/">Character encodings</a><br></h3>
+	</section>
+
+	<section>
+	  <h3>Text processing</h3>
+	  <li class='fragment'> Fortunately, you don't have to sweat this stuff much.</li>
+	  <li class='fragment'> For data scientists, text is more about processing.</li>	  
+	  <li class='fragment'> What's easy for humans (semantics) is hard for machines. </li>
+	  <ul>
+	    <li class='fragment'> Common logistical challenges:
+	      <ul>
+		<li class='fragment'>
+		  management of character encodings
+		</li>
+		<li class='fragment'>
+		  scrubbing, e.g., removing noisy, automated content
+		</li>		
+		<li class='fragment'>
+		  domain (topic/content source) and language specificity
+		</li>
+		<li class='fragment'>
+		  segmentation, or separation into &quot;appropriate&quot; chunks
+		</li>
+                                    <li class='fragment'>
+                                      Named entity recognition
+                                     </li>
+                                     
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Text processing (tweets)</h3>
+	  <center>
+	    <img src="./images/tweets.jpg" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	    Twitter is a source of unstructured text.
+	    Not only are the characters of different languages mixed throughout,
+	    but it is also dense with ASCII-derived emoticons
+	    and multi-byte emojis.
+	  </center>	  
+	</section>
+
+	<section>
+	  <h3>Images</h3>
+	  <center>
+	    <a href="http://vector-conversions.com/vectorizing/raster_vs_vector.html">
+	      <img src="./images/vector-vs-raster-jawlensky.jpg" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>	  
+	</section>
+
+	<section>
+	  <h3>Images</h3>
+	  <li class='fragment'> There are two main types of image data.</li>
+	  <li class='fragment'> Raster images made up of tiny dots have set resolutions,</li>
+	  <li class='fragment'> while vector images are recipes with infinite resoluton.</li>
+	  <li class='fragment'> The two have different value.</li>
+	  <li class='fragment'> Raster images are good for rendering the real world,</li>
+	  <li class='fragment'> while vector images are good for rendering designs.</li>
+	  <li class='fragment'> So as sources of data, we'll focus on rasters,</li>
+	  <li class='fragment'> and for brevity, just call these &quot;images.&quot;</li>
+	</section>	
+
+	<section>
+	  <h3>Required reading:	<a href="http://desource.uvu.edu/dgm/2740/IN/steinja/lessons/05/l05_06.html?m=1">Raster vs. vector images</a><br></h3>
+	</section>
+	
+	<section>
+	  <h3>Image data</h3>
+	  <li class='fragment'> Images are two-dimensional arrays of color.</li>
+	  <li class='fragment'> There are tiny dots called pixels arranged in a grid.</li>
+	  <li class='fragment'> To each pixel are devoted some &quot;bytes.&quot;</li>
+	  <li class='fragment'> Just how many depends on the format.</li>
+	  <li class='fragment'> E.g., black/white images only need one byte per pixel.</li>
+	  <li class='fragment'> This makes possible 256 shades of gray.</li>
+	  <ul>
+	    <li class='fragment'> For color, there's the jpg/jpeg format:
+	      <ul>
+		<li class='fragment'>
+		  Each of red, green and blue are devoted one byte.
+		</li>
+		<li class='fragment'>
+		  RGB color combinations meld to form overall colors.
+		</li>
+		<li class='fragment'>
+		  This makes 256 x 256 x 256 ~ 16 million color possibilities.
+		</li>
+		<li class='fragment'>
+		  Unlike png, jpg has no byte for &quot;alpha&quot;, i.e., transparency.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>	
+
+	<section>
+	  <h3>Image data</h3>
+	  <center>
+	    <a href="https://en.wikipedia.org/wiki/Raster_graphics">
+	      <img src="./images/Rgb-raster-image_smile.png" alt=" " style="width: 50%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>	  
+	</section>
+
+
+	<section>
+	  <h3>Audio</h3>
+	  <li class='fragment'>
+	    Digital audio is a numeric array of intensity (amplitude).
+	  </li>
+	  <li class='fragment'>
+	    Each element in an array is called a &quot;sample.&quot;
+	  </li>
+	  <li class='fragment'>
+	    The number of bits given each sample sets the resolution,
+	  </li>
+	  <li class='fragment'>
+	    and is the number of intensities that can be represented.
+	  </li>
+
+	</section>
+
+	<section>
+	  <h3>Audio</h3>
+	  <center>
+	    <a href="https://en.wikipedia.org/wiki/Digital_audio">
+	      <img src="./images/4-bit-sound.jpg" alt=" " style="width: 60%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  A sound wave, in red, represented digitally, in blue (after sampling and 4-bit quantization).
+	</section>
+	
+	<section>
+	  
+	  <li class='fragment'>
+	    What we actually hear, though, are frequencies,
+	  </li>
+	  <li class='fragment'>
+	    and frequencies are the rates at which intensities occur.
+	  </li>	  
+	  <li class='fragment'>
+	    The number of samples per second is the sampling rate (SR).
+	  </li>
+	  <li class='fragment'>
+	    If the SR is too low, high-frequency sounds can't be represented.
+	  </li>
+	  <ul>
+	    <li class='fragment'> So there are two main ways to analyze audio:
+	      <ul>
+		<li class='fragment'>
+		  the average amplitude in the &quot;time domain,&quot; and
+		</li>
+		<li class='fragment'>
+		  the component amplitudes in the &quot;frequency domain.&quot;
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3>Audio</h3>
+	  <center>
+	    <a href="frequency domain reflectometry">
+	      <img src="./images/Fourier_transform_time_and_frequency_domains.gif" alt=" " style="width: 50%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  The Fourier transform relates the function's time domain, shown in red, to the function's frequency domain, shown in blue. The component frequencies, spread across the frequency spectrum, are represented as peaks in the frequency domain.
+	</section>
+	
+	<section>
+	  <h3>Video</h3>
+	  <li class='fragment'>
+	    Sequences of images can be associated to audio data.
+	  </li>
+	  <li class='fragment'>
+	    This is all that it takes to make a video!
+	  </li>
+	  <li class='fragment'>
+	    Of course, there's silent videos where no audio exits.
+	  </li>	  
+	  <li class='fragment'>
+	    These are just sequences of images.
+	  </li>
+	  <li class='fragment'>
+	    The important concept we're developing is data association.
+	  </li>
+	  <li class='fragment'>
+	    What we're leaning on here is &quot;metadata,&quot; or data about data.
+	  </li>
+	  <li class='fragment'>
+	    Images in sequence are enriched with data about order.
+	  </li>	  
+	</section>
+                  
+	<section>
+	  <h3>Metadata</h3>
+<li class='fragment'>Structured, descriptive information about a resource (DCMI Glossary; Weibel, 1995)</li>
+<li class='fragment'>Data about the content, quality, condition, and other characteristics of data (FGDC Glossary, 1992)</li>
+<li class='fragment'>Additional information necessary for data to be useful (Musik, 1997)</li>
+</li>
+	<section>
+	  <h3>Metadata types</h3>
+
+	  <li class='fragment'>
+	    As mentioned, this refers to data about (describing) data.
+	  </li>
+	  
+	  <ul>
+	    <li class='fragment'> There are two main kinds:
+	      <ul>
+		<li class='fragment'>
+		  Structural: Indicates how compound data is arranged, e.g., <br> the ordering of pages to form chapters.
+		</li>
+		<li class='fragment'>
+		  Descriptive: Describes individual instances of other data, e.g., <br> title, abstract, or author.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Required reading:	<a href="https://en.wikipedia.org/wiki/Metadata">wiki/metadata</a><br></h3>
+	  Only read the introduction and sections 1 (history), 2 (definition), 3 (types), and 6 (use).
+	</section>
+
+	<section>
+	  <h3>Required reading:	<a href="https://groups.niso.org/apps/group_public/download.php/17446/Understanding Metadata.pdf">Understanding metadata</a><br></h3>
+	</section>
+	<section>
+	  <h3>Linked data</h3>
+                    <li>RDF - Resource data framework (triplets) "this does that"<li>
+                    <li><a href="https://en.wikipedia.org/wiki/Web_Ontology_Language">OWL - Web Ontology Language "this is one of those"<li>
+	</section>
+	<section>
+	  <h3>Required viewing:	<a href="https://www.ted.com/talks/tim_berners_lee_on_the_next_web">The Next Web</a><br></h3>
+	</section>
+                  <section>
+	  <h3>Geospatial data</h3>
+	  <center>
+	    <a href="https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak">
+	      <img src="./images/Snow-cholera-map.jpg" alt=" " style="width: 50%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  Map by Dr. John Snow of London, showing clusters of cholera cases in the 1854 Broad Street cholera outbreak. This was one of the first uses of map-based spatial analysis.
+	</section>
+	
+	<section>
+	  <h3>Geospatial data</h3>
+	  <li class='fragment'>
+	    Fine-grained geospatial data is often numeric.
+	  </li>
+	  <li class='fragment'>
+	    On a globe, latitude and longitude represent angles.
+	  </li>
+	  <li class='fragment'>
+	    There are different types of Lat/lon-constructed &quot;layers.&quot;
+	  </li>
+	  <li class='fragment'>
+	    These can represent points, lines, and polygons.
+	  </li>
+	  <li class='fragment'>
+	    Remember, the world is not flat, i.e., lat/lon are not x/y!
+	  </li>
+	  <li class='fragment'>
+	    So when relating objects, use appropriate formulae. <br> (see <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine</a>)
+	  </li>
+
+	  <ul>
+	    <li class='fragment'> A few uses of geospatial data:
+	      <ul>
+		<li class='fragment'>
+		  map making, in general (natural and social)
+		</li>
+		<li class='fragment'>
+		  directions, routing and tracking shipments
+		</li>
+		<li class='fragment'>
+		  tracking disease spread
+		</li>
+		<li class='fragment'>
+		  aggregating and correlating health demographics
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>
+	</section>	
+
+	<section>
+	  <h3>Geospatial data has &quot;layers&quot;</h3>
+	  <center>
+	    <a href="https://www.weather.gov/bmx/gis">
+	      <img src="./images/gislayers.jpg" alt=" " style="width: 50%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>	  
+	</section>
+	
+	<section>
+	  <h3>Is Geospatial data just lat/lon?</h3>
+	  <li class='fragment'>
+	    Geospatial data is not always what it seems.
+	  </li>	  
+	  <li class='fragment'>
+	    Sure, lat/lon points describe locations and shapes,
+	  </li>
+	  <li class='fragment'>
+	    but named locations, e.g., &quot;Philadelphia&quot;, count too.
+	  </li>
+	  <li class='fragment'>
+	    So, unstructured text is rife with location data!
+	  </li>
+	  <li class='fragment'>
+	    Beyond that, there's also satellite imagery.
+	  </li>	  
+	  <li class='fragment'>
+	    Is this geospatial type structured, or unstructured?
+	  </li>
+	  
+	  <ul>
+	    <li class='fragment'> Some examples of geo-spatial data:
+	      <ul>
+		<li class='fragment'>
+		  triangulated cell signals
+		</li>
+		<li class='fragment'>
+		  gps-reported lat/lon pairs 
+		</li>
+		<li class='fragment'>
+		  references to named locations in text
+		</li>
+		<li class='fragment'>
+		  satellite and aerial imagery 
+		</li>
+		<li class='fragment'>
+		  elevation
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>
+	  
+	</section>
+
+	<section>
+	  <h3>Temporal data</h3>
+	  <center>
+	    <a href="english trade balance time series">
+	      <img src="./images/tradeBalance.png" alt=" " style="width: 75%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>	  
+	</section>
+	
+	<section>
+	  <h3>Temporal</h3>
+	  <li class='fragment'>
+	    Temporal just means time-ordered.
+	  </li>
+	  <li class='fragment'>
+	    Most electronic data has a time stamp (metadata).
+	  </li>
+	  <li class='fragment'>
+	    Audio data is naturally temporal.
+	  </li>
+	  <li class='fragment'>
+	    Anything can be time-ordered&mdash;images become a video.
+	  </li>
+	  <li class='fragment'>
+	    Even the progression of words can be modeled temporally.
+	  </li>	  
+	  <li class='fragment'>
+	    However, most timeseries are 1-d numeric, like stock charts.
+	  </li>
+	  <ul>
+	    <li class='fragment'> Common tasks:
+	      <ul>
+		<li class='fragment'>
+		  forecasting, e.g., future prediction of stock prices
+		</li>
+		<li class='fragment'>
+		  signal estimation, e.g., noise cancellation in sound
+		</li>
+		<li class='fragment'>
+		  segmentation, e.g., break a phone call into speeches
+		</li>
+		<li class='fragment'>
+		  anomaly detection, e.g., detecting seismic events
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Categorical</h3>
+
+	  <li class='fragment'>
+	    Categorical data take on a limited numbers of values.
+	  </li>
+	  <li class='fragment'>
+	    Frequently, this type of data will be seen as &quot;groups.&quot;
+	  </li>
+	  <ul>
+	    <li class='fragment'> Some examples:
+	      <ul>
+		<li class='fragment'>
+		  blood type: A, B, AB, or O
+		</li>
+		<li class='fragment'>
+		  country of origin
+		</li>
+		<li class='fragment'>
+		  political party
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>
+	  <li class='fragment'>
+	    though non-numeric, quantitative analysis is still possible
+	  </li>
+	  <li class='fragment'>
+	    e.g., one may study population sizes of blood types
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Required reading</h3>
+	  <a href="http://www.ats.ucla.edu/stat/mult_pkg/whatstat/nominal_ordinal_interval.htm">What is the difference between categorical, ordinal and interval variables?</a> (read all but the last section)
+	</section>
+	
+	<section>
+	  <h3>Recap</h3>
+	  <li class='fragment'>
+	    There are many different types of data,
+	  </li>
+
+	  <li class='fragment'>
+	    which can be quite similar if looked at closely,
+	  </li>
+	  
+	  <li class='fragment'>
+	    but type is oftern determined by purpose or perspective.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Data organization can be as important as the data iteself.
+	  </li>
+
+	  <li class='fragment'>
+	    Every type of data presents its own unique challenges.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Up next, <a href="ch04.html">BIG data</a>:
+	      <ul>
+		<li class='fragment'>
+		  Dive deeper into data challenges
+		</li>
+		<li class='fragment'>
+		  BIG DATA (volume), but also...
+		</li>
+		<li class='fragment'>
+		  velocity, veracity, and variety.
+		</li>
+		<li class='fragment'>
+		  Data-specialized technologies.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>
