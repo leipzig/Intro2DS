@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 4</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+    <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>&quot;Big Data&quot;</h3>
+	  <center>
+	    <img src="./images/4-Vs-of-big-data.jpg" alt=" " style="width: 70%;max-height: 100%;object-fit: contain;Float: center" />
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>
+				
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="http://www.ibmbigdatahub.com/infographic/four-vs-big-data">
+		  <a href="index.html">Introduction to data science</a><br>
+		</a>
+	      </medium>
+	      <small>
+		Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Some common themes</h3>
+
+	  <li class='fragment'>
+	    &quot;Big&quot; data is not just about data being large.
+	  </li>
+	  
+	  <li class='fragment'>
+	    &quot;Big&quot; data is a blessing and a curse.
+	  </li>
+
+	  <li class='fragment'>
+	    It's best to work with data that matches needs!
+	  </li>
+
+	</section>	
+	
+	<section>
+	  <h3>What is &quot;Big data?&quot;</h3>
+	  <li class='fragment'> &quot;Big data&quot; is hyped-up term.</li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Really, what's going on is:
+	      <ul>
+		<li class='fragment'>
+		  potential insights are a big deal, but
+		</li>
+		<li class='fragment'>
+		  effective utilization poses a big problem.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  <br><br>
+	  <li class='fragment'>Really, the question is what makes data &quot;big?&quot;</li>
+	</section>
+
+	<section>
+	  <h3>Required reading</h3>
+	  > <a href="http://www.ssc.upenn.edu/~fdiebold/papers/paper112/Diebold_Big_Data.pdf">Who coined the term &quot;Big data?&quot;</a>
+	</section>
+	
+	<section>
+	  <h3>The three Vs of Big data</h3>
+	  <li class='fragment'> Data can be &quot;big&quot; for a number reasons.</li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> In 2001, Doug Laney succinctly described big data by 3 Vs:
+	      <ul>
+		<li class='fragment'>
+		  Volume: The overall size of data
+		</li>
+		<li class='fragment'>
+		  Velocity: The rate at which new data emerges
+		</li>
+		<li class='fragment'>
+		  Variety: The differences in forms of data
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  <br><br>
+	  <li class='fragment'>
+	    Each V presents different promises and challenges.
+	  </li>
+
+	</section>
+
+	<section>
+	  <h3>Required reading:<br>
+	    <a href="https://blogs.gartner.com/doug-laney/files/2012/01/ad949-3D-Data-Management-Controlling-Data-Volume-Velocity-and-Variety.pdf">
+	      The original 3 Vs of big data
+	    </a>
+	  </h3>
+	</section>
+	
+	<section>
+	  <h3>The 3+ Vs of big data</h3>
+
+	  <li class='fragment'>
+	    Each of the three Vs describes something intrinsic about data.
+	  </li>
+
+	  <li class='fragment'>
+	    Over time, we discovered other words that start with V.
+	  </li>	  
+	  <br>
+	  <ul>
+	    <li class='fragment'> Some <a href="https://www.mapr.com/blog/top-10-big-data-challenges-serious-look-10-big-data-vs">other Vs</a>:
+	      <ul>
+		<li class='fragment'>
+		  Veracity: The uncertainties of data constitution
+		</li>
+		<li class='fragment'>
+		  Value: The usefulness of data
+		</li>
+		<li class='fragment'>
+		  Validity: The quality or trueness of data
+		</li>
+		<li class='fragment'>
+		  Variability: The changing nature of data
+		</li>
+		<li class='fragment'>
+		  Visualization: The visually-descriptive power of data
+		</li>
+		<li class='fragment'>
+		  Vagueness: Confusion over the meaning of big data
+		</li>
+		<li class='fragment'>
+		  Vocabulary: Structure metadata that provide context
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>
+	  <br><br>
+	  <li class='fragment'>
+	    Are any of the Vs redundant?
+	  </li>
+	  <li class='fragment'>
+	    Are all of these intrinsic to data?
+	  </li>	  	  
+	</section>
+	
+	<section>
+	  <h3>Required reading:
+	    <br>
+	    <a href="http://www.informationweek.com/big-data/big-data-analytics/big-data-avoid-wanna-v-confusion/d/d-id/1111077?">
+	      Avoiding that &quot;wanna-V&quot; confusion
+	    </a>
+	  </h3>
+	</section>
+	
+	<section>
+	  <h3>Maybe 4 Vs of big data?</h3>
+	  <ul>
+	    <li class='fragment'> Some thoughts:
+	      <ul>
+		<li class='fragment'>
+		  The Vs are only a cute mnemonic for description.
+		</li>
+		<li class='fragment'>
+		  Any &quot;keepers&quot; should be distinct
+		</li>
+		<li class='fragment'>
+		  and should be data-intrinsic descriptions.
+		</li>
+		<li class='fragment'>
+		  This is probably why Veracity has had some staying power.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  <br><br>
+	  <li class='fragment'>
+	    We'll stick to 4 Vs (including Veracity), and go into some detail.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Volume</h3>
+	  <li class='fragment'> Probably the most obvious type of bigness,</li>
+	  <li class='fragment'> Volume refers to the measurable size of data.</li>
+	  <li class='fragment'> E.g., The Library of Congress has all of the public tweets,</li>
+	  <li class='fragment'> which can be used for whole-population research,</li>
+	  <li class='fragment'> but they struggle to even store them all.</li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> At what size might data be big? 
+	      <ul>
+		<li class='fragment'>
+		  One computer/drive/connection can't process/store/send it all?
+		</li>
+		<li class='fragment'>
+		  Coverage approaches the whole population?
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Velocity</h3>
+	  <li class='fragment'> Not speed, velocity, i.e., send and receive.</li>
+	  <li class='fragment'> This has to do with rates.</li>
+	  <li class='fragment'> E.g., Twitter produces ~500,000,000 Tweets/day,</li>
+	  <li class='fragment'> which offers current insight into world events,</li>
+	  <li class='fragment'> but keeping up with the feed requires massive infrastructure.</li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> At what rate might data be big? 
+	      <ul>
+		<li class='fragment'>
+		  Equipment can only process 1/10 records in real time.
+		</li>
+		<li class='fragment'>
+		  An analysis informs of something before the news.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>	
+
+	<section>
+	  <h3>All of the Tweets for US</h3>
+	  <li class='fragment'>
+	    In 2010, the US Library of Congress (LoC) signed with Twitter.
+	  </li>
+	  <li class='fragment'> 
+	    The LoC would house and make available all of the tweets.
+	  </li>
+	  <li class='fragment'> 
+	    While this is hard, there are companies that already do this.
+	  </li>
+	  <li class='fragment'> 
+	    E.g., Gnip, is the official delivery agent for the LoC.
+	  </li>
+	  <li class='fragment'>
+	    What has happened since then?	    
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Required readings:
+	      <ul>
+		<li class='fragment'>
+		  <a href="readings/twitter_report_2013jan.pdf">The most recent LoC report</a>
+		</li>
+		<li class='fragment'>
+		  <a href="http://www.politico.com/story/2015/07/library-of-congress-twitter-archive-119698.html">
+		    Too much too fast for the Library of Congress
+		  </a>
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3>Variety</h3>
+	  <li class='fragment'>
+	    We've already seen there are many data types.
+	  </li>
+	  <li class='fragment'>
+	    Each type of data has its own processing and storage needs.
+	  </li>
+	  <li class='fragment'>
+	    E.g., memos, x-rays, and notes. in Elect. med. records (EMRs).
+	  </li>	  
+	  <li class='fragment'>
+	    make complete profiles though integration of multiple formats,
+	  </li>
+	  <li class='fragment'>
+	    but require the integration of specialized processing techniques
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> At what heterogeneity might data be big?
+	      <ul>
+		<li class='fragment'>
+		  An analysis combines a different model for 10 types of data.
+		</li>
+		<li class='fragment'>
+		  A comprehensive analysis identifies a combined effect.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Veracity</h3>
+	  <li class='fragment'>
+	    Veracity refers to data integrity, or consistency.
+	  </li>
+	  <li class='fragment'>
+	    E.g., 50 different reference words for a condition in an EMR.
+	  </li>	  
+	  <li class='fragment'>
+	    Here, flexibility can ensure data is always entered, but
+	  </li>
+	  <li class='fragment'>
+	    might leave a condition's documentation unprocessed.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> At what state of disorder might data be big?
+	      <ul>
+		<li class='fragment'>
+		  Data are completely unstructured.
+		</li>
+		<li class='fragment'>
+		  Data captures insight from all levels of participation.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Recap</h3>
+
+	  <li class='fragment'>
+	    &quot;Big&quot; data is not just about data being large.
+	  </li>
+	  
+	  <li class='fragment'>
+	    &quot;Big&quot; data is a blessing and a curse.
+	  </li>
+
+	  <li class='fragment'>
+	    It's best to work with data that matches needs!
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Next time: <a href="ch05.html">Big data technologies</a>
+	      <ul>
+		<li class='fragment'>
+		  How is big data stored?
+		</li>
+		<li class='fragment'>
+		  How is big data processed?
+		</li>	
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>	
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>
