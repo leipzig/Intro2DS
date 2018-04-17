@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 5</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+    <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>Technology</h3>
+	  <center>
+	    <a href="http://www.glennklockwood.com/data-intensive/hadoop/overview.html">
+	      <img src="./images/mapreduce-workflow.jpg" alt=" " style="width: 70%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>
+				
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="index.html">Introduction to data science</a><br>
+	      </medium>
+	      <small>
+		Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+		Blackboard
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Some themes</h3>
+
+	  <li class='fragment'>
+	    Big data requires commensurate technology.
+	  </li>
+
+	  <li class='fragment'>
+	    Big data technologies are specialized for different uses,
+	  </li>
+	  
+	  <li class='fragment'>
+	    designed to support different processing needs.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Most speed-ups only handle the (embarrassingly) simple stuff.
+	  </li>
+
+	  <li class='fragment'>
+	    When there's lots of data, it's best to leave it where it is.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Hadoop and spark are frameworks, and map-reduce is a pattern,
+	  </li>
+	  
+	  <li class='fragment'>
+	    unless it's proprietary MapReduce, which Google created early on.
+	  </li>
+
+	</section>
+	
+	<section>
+	  <h3>Computing essentials</h3>
+
+	  <li class='fragment'>
+	    Let's talk about processing, disk, memory, and networks.
+	  </li>
+	  <li class='fragment'>
+	    Processors execute tasks and commands.
+	  </li>
+	  <li class='fragment'>
+	    Disks hold &quot;cold&quot; storage, and must be read to be processed.
+	  </li>	  
+	  <li class='fragment'>
+	    Memory holds &quot;hot&quot; storage, and is available very rapidly.
+	  </li>
+	  <li class='fragment'>
+	    Networks transfer data between machines.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Remember these details:
+	      <ul>
+		<li class='fragment'>
+		  Processors get stuff done.
+		</li>
+		<li class='fragment'>
+		  Disk space is abundant and secure, but slow to access.
+		</li>
+		<li class='fragment'>
+		  Memory is limited and ephemeral, but quick to access.
+		</li>
+		<li class='fragment'>
+		  Sending data across a network is usually slow.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>How is big data handled?</h3>
+
+	  <li class='fragment'>
+	    It can help to break things into pieces.
+	  </li>
+	  <li class='fragment'>
+	    This is called parallelization,
+	  </li>
+	  <li class='fragment'>	    
+	    and often requires specialized technology.
+	  </li>
+	  <li class='fragment'>
+	    Not every process can be completely parallelized,
+	  </li>	  
+	  <li class='fragment'>
+	    but many algorithms are &quot;embarrassingly parallel.&quot;
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Two common types of parallelism:
+	      <ul>
+		<li class='fragment'>
+		  Split tasks on one computer across multiple cores (limited).
+		</li>
+		<li class='fragment'>
+		  Divide tasks on clusters across multiple machines (scalable).
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>
+
+	<section>
+	  <h3>Serving data on a cluster</h3>
+
+	  <li class='fragment'>
+	    Big data often doesn't fit on a single disk.
+	  </li>	  	  
+
+	  <li class='fragment'>
+	    So clusters more than often have a &quot;distributed file system,&quot;
+	  </li>	  	  
+
+	  <li class='fragment'>
+	    which is a &quot;storage node&quot; that controls access to many disks
+	  </li>	  	  
+
+	  <li class='fragment'>
+	    and makes them look like a single disk for &quot;compute nodes&quot;
+	  </li>
+
+	  <li class='fragment'>
+	    that perform user-specified tasks.
+	  </li>
+	  <li class='fragment'>
+	    Distributed file systems are network-accessed.
+	  </li>  
+	</section>
+
+	<section>
+	  <h3>Sharing data on a cluster</h3>
+	  
+	  <li class='fragment'>
+	    When a &quot;job&quot; is split across a cluster there's often a problem:
+	  </li>	  
+	  <li class='fragment'>
+	    how can the individual nodes communicate?
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> There are two extreme frameworks to this end:
+	      <ul>
+		<li class='fragment'>
+		  Shared everything (SE): all data is available to all nodes
+		</li>		
+		<li class='fragment'>
+		  Shared nothing (SN): no data is communicated between nodes
+		</li>
+	      </ul>
+	    </li>
+	  </ul>	  
+
+	</section>
+
+	<section>
+	  <h3>MPI</h3>
+
+	  <li class='fragment'>
+	    Message Passing Interface (MPI) is all about info. sharing.
+	  </li>
+	  <li class='fragment'>
+	    MPI allows nodes to share intermediate data during processing.
+	  </li>
+	  <li class='fragment'>
+	    I.e., this is a network-enabled SE framework.
+	  </li>
+	  <li class='fragment'>
+	    MPI is not tied to a distributed file system, so it's &quot;portable.&quot;
+	  </li>
+	  <li class='fragment'>
+	    However, distributed file systems are necessary for Volume.
+	  </li>
+	  <li class='fragment'>
+	    Messages are passed between nodes,
+	  </li>
+	  <li class='fragment'>
+	    making MPI heavy on network requirements.
+	  </li>
+	  <li class='fragment'>
+	    When shared data gets very voluminous, this can be a problem.
+	  </li>	  
+	</section>	
+
+	<section>
+	  <h3>Embarrassingly parallel algorithms</h3>
+	  <center>
+	    <a href="http://www.cs.iusb.edu/~danav/teach/b424/b424_23_embpar.html">
+	      <img src="./images/emb_par.gif" alt=" " style="width: 50%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  <li class='fragment'>
+	    This refers to when it is very easy to parallelize an algorithm
+	  </li>
+	  <li class='fragment'>
+	    and usually coincides with algorithms that can use SN,
+	  </li>
+	  <li class='fragment'>
+	    like doing +1 to a list of 10 million numbers,
+	  </li>	  
+	  <li class='fragment'>
+	    or when there is very little need for lateral communication.
+	  </li>	  	  
+	  <li class='fragment'>
+	    Required reading: <a href="https://en.wikipedia.org/wiki/Embarrassingly_parallel">Wikipedia (through etymology)</a>
+	  </li>
+	</section>
+                  <section>
+                    <h3>Vocabulary</h3>
+                    <li>Job</li>
+                    <li>Batch</li>
+                    <li>Stream</li>
+                    <li>Cluster</li>
+                    <li>Node</li>
+                    <li>Grid</li>
+                    <li>Workflow</li>
+                    <li>HPC</li>
+                    <li>IO-Bound / CPU-Bound / Memory-Bound</li>
+                    <li>Scalability</li>
+                  </section>
+	<section>
+	  <h3>Map-reduce</h3>
+	  
+	  <li class='fragment'>
+	    Most parallelism uses SN and the &quot;map-reduce&quot; pattern.
+	  </li>
+	  <li class='fragment'>
+	    Embarrassingly parallel algorithms are ripe for map-reduce.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> So, how does map-reduce distribute computation:
+	      <ul>
+		<li class='fragment'>
+		  A master node sends code and assigns data to workers
+		</li>		
+		<li class='fragment'>
+		  which operate independently on data-records (map)
+		</li>
+		<li class='fragment'>
+		  whose output is sorted (the shuffle) by the master
+		</li>
+		<li class='fragment'>
+		  and sent back to workers for any completion tasks (reduce).
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3>Required viewing: <a href="https://www.youtube.com/watch?v=8wjvMyc01QY">What is MapReduce?</a></h3>
+	  <center>
+	    <a href="http://sci2s.ugr.es/BigData">
+	      <img src="./images/mr.jpg" alt=" " style="width: 80%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>	  
+	  
+	</section>
+	
+	<section>
+	  <h3>Hadoop</h3>
+
+	  <li class='fragment'>
+	    Hadoop is software for distributed storage and processing.
+	  </li>
+	  <li class='fragment'>
+	    Hadoop is engineered for processing big (Voluminous) data.
+	  </li>	  
+	  <li class='fragment'>
+	    Importantly, it takes care of the nitty-gritty work in map-reduce.
+	  </li>
+	  <li class='fragment'>
+	    Hadoop is written in Java, but Hadoop Streaming
+	  </li>
+	  <li class='fragment'>
+	    allows for Map and Reduce to be written in other languages.
+	  </li>
+	  <li class='fragment'>
+	    Really important: data is distributed across compute nodes,
+	  </li>
+	  <li class='fragment'>
+	    i.e., computation lives on top of the source data.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Some details:
+	      <ul>
+		<li class='fragment'>
+		  The Hadoop distributed file system (HDFS) is paramount...
+		</li>
+		<li class='fragment'>
+		  ...so it's only practice-Hadoop without a dedicated server.
+		</li>
+		<li class='fragment'>
+		  Intermediate data is always stored on disk between steps.
+		</li>		
+		<li class='fragment'>
+		  I.e., this framework is heavy on disk reads and writes.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3>Required reading:
+	    <a href="http://www.glennklockwood.com/data-intensive/hadoop/overview.html">Hadoop</a>
+	  </h3>	  
+	</section>	
+	
+	<section>
+	  <h3>Spark</h3>
+
+	  <li class='fragment'>
+	    Spark is the next generation framework after Hadoop.
+	  </li>
+	  <li class='fragment'>
+	    Spark does not necessarily replace Hadoop,
+	  </li>
+	  <li class='fragment'>
+	    or at least the Hadoop distributed file system.
+	  </li>	  
+	  <li class='fragment'>
+	    Spark is written in Scala, but has nice Python and R abstractions.
+	  </li>	  
+	  <li class='fragment'>
+	    Hadoop can be slow with intermediate disk reads/writes.
+	  </li>
+	  <li class='fragment'>
+	    Sparks does a lot with intermediate data in memory.
+	  </li>
+	  <li class='fragment'>
+	    Also, it's fault-tolerant, with resilient distributed datasets (RDDs)
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'>Some aspects: 
+	      <ul>
+		<li class='fragment'>
+		  Spark is geared toward data analysis as much as management.
+		</li>
+		<li class='fragment'>
+		  RDDs are efficient, since faults don't mean &quot;start over.&quot;
+		</li>
+		<li class='fragment'>
+		  Also, keeping data in memory can make Spark much faster.
+		</li>
+		<li class='fragment'>
+		  Since memory is limited, Spark will write to disk if necessary.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Required reading:
+	    <a href="https://www.youtube.com/watch?v=KzFe4T0PwQ8">Apache Spark vs. MapReduce #WhiteboardWalkthrough</a>
+	  </h3>
+	</section>
+
+	<section>
+	  <h3>GPU processing</h3>
+
+	  <li class='fragment'>
+	    Most of the time we think about CPUs for processing.
+	  </li>
+	  <li class='fragment'>
+	    There are also specialized, graphics processing units (GPUs),
+	  </li>
+	  <li class='fragment'>
+	    which leverage the regular structure of image-data.
+	  </li>
+	  <li class='fragment'>
+	    Recall&mdash;images are really matrices of pixels.
+	  </li>
+	  <li class='fragment'>
+	    Matrices operations are often embarrassingly parallel.
+	  </li>
+	  <li class='fragment'>
+	    So, GPUs have lots and lots of small cores inside.
+	  </li>
+	  <li class='fragment'>
+	    E.g., the Nvidia Titan Z GPU has 5,760 cores at ~900Mhz, each!
+	  </li>	  
+	  <li class='fragment'>
+	    These are also being used for general purpose processing,
+	  </li>
+	  <li class='fragment'>
+	    but generally for the least-complex tasks.
+	  </li>
+	</section>
+		
+	<section>
+	  <h3>Recap</h3>
+
+	  <li class='fragment'>
+	    Big data requires commensurate technology.
+	  </li>
+
+	  <li class='fragment'>
+	    Big data technologies are specialized for different uses,
+	  </li>
+	  
+	  <li class='fragment'>
+	    designed to support different processing needs.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Most speed-ups only handle the (embarrassingly) simple stuff.
+	  </li>
+
+	  <li class='fragment'>
+	    When there's lots of data, it's best to leave it where it is.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Hadoop and spark are frameworks, and map-reduce is a pattern,
+	  </li>
+	  
+	  <li class='fragment'>
+	    unless it's proprietary MapReduce, which Google created early on.
+	  </li>
+	  
+	  <br>
+	  <ul>
+	    <li class='fragment'> Next week: <a href="ch06.html">Acquiring data</a>
+	      <ul>
+		<li class='fragment'>
+		  determining sources of data
+		</li>
+		<li class='fragment'>
+		  collecting data
+		</li>
+		<li class='fragment'>
+		  data access
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>
