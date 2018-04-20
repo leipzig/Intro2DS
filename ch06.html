@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 6</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+     <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>Acquisition</h3>
+	  <center>
+	    <a href="https://www.columnfivemedia.com/work-items/infographic-intelligence-by-variety">
+	      <img src="./images/variety-of-big-data-sources_top.png" alt=" " style="width: 45%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>
+				
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="index.html">Introduction to data science</a><br>
+	      </medium>
+	      <small>
+		Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	</section>
+	
+	<section>
+	  <h3>Some themes</h3>
+
+	  <li class='fragment'>
+	    Data comes from closed and open sources,
+	  </li>
+
+	  <li class='fragment'>
+	    but if it is on the internet you can probably get it.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Data can usually be acquired with creativity,
+	  </li>
+
+	  <li class='fragment'>
+	    and is produced with often unforeseen ethical implications.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Take care with data licenses and read the fine print.
+	  </li>
+
+	</section>
+	
+	<section>
+	  <h3>Where to find data?</h3>
+
+	  <ul>
+	    <li class='fragment'> Let's consider how data might be collected:
+	      <ul>
+		<li class='fragment'>
+		  surveying with direct questions,
+		</li>
+		<li class='fragment'>
+		  sensing phenomena as they occur, and
+		</li>
+		<li class='fragment'>
+		  sampling controlled materials.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Surveys</h3>
+	  <li class='fragment'>
+	    When surveying, researchers can ask specific questions.
+	  </li>
+	  <li class='fragment'>
+	    Respondent recorded surveys can be written or electronic,
+	  </li>
+	  <li class='fragment'>
+	    and interviewed surveys can be face to face or over the phone.
+	  </li>
+	  <li class='fragment'>
+	    There's determining the right number of respondents,
+	  </li>
+	  <li class='fragment'>
+	    and if they accurately represent the target population.
+	  </li>
+	  <li class='fragment'>
+	    In addition, question formation requires extreme care.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> For example, questions might be
+	      <ul>
+		<li class='fragment'>
+		  objective or subjective (Likert scale),
+		</li>		
+		<li class='fragment'>
+		  closed-ended or open-ended,
+		</li>
+		<li class='fragment'>
+		  respondent leading, or
+		</li>
+		<li class='fragment'>
+		  loaded with implicit assumptions.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3>Interviewer-led surveys</h3>
+
+	  <li class='fragment'>
+	    On phone or in person&mdash;interviews and consultations
+	  </li>
+
+	  <li class='fragment'>
+	    While these surveys offer lots of interviewer control,
+	  </li>
+	  <li class='fragment'>
+	    they are hindered by cost, scalability and interviewer ability.
+	  </li>
+                    <li>
+                      there are tools such as <a href="atlasti.com">AtlasTI</a> for long interview transcription and annotation
+                    </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Some benefits:
+	      <ul>
+		<li class='fragment'>
+		  can capture emotions, behaviors, and physical cues
+		</li>
+		<li class='fragment'>
+		  offer accurate screening
+		</li>
+		<li class='fragment'>
+		  interviewer has control and can maintain focus
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  <br><br>
+	  <ul>
+	    <li class='fragment'> Some drawbacks:
+	      <ul>
+		<li class='fragment'>
+		  expensive to run
+		</li>		
+		<li class='fragment'>
+		  slow to establish
+		</li>
+		<li class='fragment'>
+		  difficult to scale
+		</li>
+		<li class='fragment'>
+		  subject to interviewer biases
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>	  
+	  
+	</section>
+
+	<section>
+	  <h3>Distributed surveys</h3>
+
+	  <li class='fragment'>
+	    Whether distributed as a hard copy or an electronic form,
+	  </li>
+
+	  <li class='fragment'>
+	    these types often have a more rigid structure, like
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    the census, product ratings, Mechanical Turk, or SurveyMonkey.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Some benefits:
+	      <ul>
+		<li class='fragment'>
+		  scalable (especially electronic)
+		</li>
+		<li class='fragment'>
+		  fast completion (especially electronic)
+		</li>
+		<li class='fragment'>
+		  anonymity for respondents
+		</li>
+		<li class='fragment'>
+		  affordable to operate
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  <br><br>
+	  <ul>
+	    <li class='fragment'> Some drawbacks:
+	      <ul>
+		<li class='fragment'>
+		  lack of control (especially electronic)
+		</li>		
+		<li class='fragment'>
+		  format restrictions
+		</li>
+		<li class='fragment'>
+		  loss of data quality
+		</li>
+		<li class='fragment'>
+		  respondents may push through for profit
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>	  
+	</section>
+	
+	<section>
+	  <h3>Required reading: <a href="http://www.pbs.org/newshour/updates/inside-amazons-hidden-science-factory/">Super Turkers</a></h3>
+	  <center>
+	    <a href="https://en.wikipedia.org/wiki/The_Turk">
+	      <img src="./images/Mturk.jpg" alt=" " style="width: 65%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Sampling</h3>
+	  <li class='fragment'>
+	    Let's think of sampling as a punctuated collection process,
+	  </li>
+	  <li class='fragment'>
+	    where an object is removed from its source for measurement.
+ 	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Some examples:
+	      <ul>
+		<li class='fragment'>
+		  bone for radio-carbon dating 
+		</li>
+		<li class='fragment'>
+		  rock for mass-spectrometry compositions
+		</li>
+		<li class='fragment'>
+		  blood for typing and chemical analysis
+		</li>
+		<li class='fragment'>
+		  hair follicles for gene-sequencing
+		</li>		
+		<li class='fragment'>
+		  ice-cores for climate records
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Sensors</h3>
+	  <li class='fragment'>
+	    Let's think of sensors as passive data collectors
+	  </li>
+	  <li class='fragment'>
+	    that capture data in live, operational systems.
+	  </li>	  
+	  <li class='fragment'>
+	    Here, the great challenge is setting up a sensor system,
+	  </li>
+	  <li class='fragment'>
+	    and often, the value of data collected is found secondarily.
+	  </li>
+	  <li class='fragment'>
+	    I.e., a system must exist before its data can be accessed.
+	  </li>	  
+	  <br>
+	  <ul>
+	    <li class='fragment'> Let's list a few more sources:
+	      <ul>
+		<li class='fragment'>
+		  thermometers, barometers, and altimeters on balloons
+		</li>
+		<li class='fragment'>
+		  microphones and cameras in buildings
+		</li>
+		<li class='fragment'>
+		  voltmeters in grids
+		</li>
+		<li class='fragment'>
+		  call log recording of cell phones
+		</li>
+		<li class='fragment'>
+		  blog posting in social media
+		</li>
+		<li class='fragment'>
+		  heart rate monitors on watches
+		</li>
+		<li class='fragment'>
+		  conversations with &quot;Hello Barbie&quot;
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>	
+
+	<section>
+	  <h3>Required reading: <a href="http://www.bioethics.net/2015/09/hello-barbie-considering-potential-unforeseen-problems-with-a-i-dolls-and-what-children-tell-them/">Hello Barbie</a></h3>
+	  <center>
+	    <a href="http://hellobarbiefaq.mattel.com/about-hello-barbie/">
+	      <img src="./images/hello_barbie.jpg" alt=" " style="width: 45%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Data access, privacy, and sharing</h3>
+	  <li class='fragment'>
+	    Depending on the source, access to data is highly variable.
+	  </li>
+	  <li class='fragment'>
+	    If you collect the data, is it yours to keep and share?
+	  </li>
+	  <li class='fragment'>
+	    What about if you produce the data?
+	  </li>
+	  <li class='fragment'>
+	    While academic human subjects research is more controlled,
+	  </li>	  
+	  <li class='fragment'>
+	    through Institutional Review Boards (IRBs) certifications,
+	  </li>
+	  <li class='fragment'>
+	    data generated through commercial is more variant,
+	  </li>
+	  <li class='fragment'>
+	    with consent and rights waived through terms of service.
+	  </li>	  
+	</section>
+
+	<section>
+	  <h3>Required reading: <a href="http://www.pewinternet.org/2016/01/14/privacy-and-information-sharing/">Privacy and information</a></h3>
+	  <center>
+	    <a href="http://www.privacypolicyonline.com/terms-of-service-generator/">
+	      <img src="./images/TOS.jpg" alt=" " style="width: 95%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Controlled data and APIs</h3>
+
+	  <li class='fragment'>
+	    So much electronic data is commercially collected or generated.
+	  </li>
+	  <li class='fragment'>
+	    If you're the company, then great! You have access.
+	  </li>
+	  <li class='fragment'>
+	    If you're interested, but not the company, there are hoops.
+	  </li>
+	  <li class='fragment'>
+	    In fact, companies often release small amounts of data,
+	  </li>
+	  <li class='fragment'>
+	    oftentimes through an application programming interface (API).
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> What's an API (thanks, <a href="https://en.wikipedia.org/wiki/Application_programming_interface">Wikipedia</a>)?
+	      <ul>
+		<li class='fragment'>
+		  In computer programming, an application programming interface (API)
+		  is a set of subroutine definitions, protocols, and tools for building software and applications.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	  
+	</section>
+
+	<section>
+	  <h3>APIs</h3>
+
+	  <li class='fragment'>
+	    That was a technical definition.
+	  </li>
+	  <li class='fragment'>
+	    APIs provide data access for programming development.
+	  </li>	  
+	  <li class='fragment'>
+	    Companies may want you to use their data <br> (if only in a limited way).
+	  </li>
+	  
+	  <li class='fragment'>
+	    E.g., Twitter data applications engage their community.
+	  </li>
+	  <li class='fragment'>
+	    For development, their API provides 1% public access.
+	  </li>
+	  <li class='fragment'>
+	    How do you get access to more data? Money!
+	  </li>	  
+	  <li class='fragment'>
+	    Well... Twitter also has <a href="https://blog.twitter.com/2014/introducing-twitter-data-grants">data grants</a>, but
+	  </li>	  
+	  <li class='fragment'>
+	    to access samples, one writes code to make &quot;API requests.&quot;
+	  </li>
+	  <li class='fragment'>
+	    APIs also aid programming, like openCL for GPU processing.
+	  </li>	  
+	</section>
+
+	<section>
+	  <h3>Scraping electronic data</h3>
+	  <li class='fragment'>
+	    This probably falls into our data-sampling category.
+	  </li>
+	  <li class='fragment'>
+	    Lots of data is just sitting, artifactually, on the Internet,
+	  </li>
+	  <li class='fragment'>
+	    e.g., any website, hosting photos, videos, or text.
+	  </li>
+	  <li class='fragment'>
+	    There, photos and videos are files in a nearby directory,
+	  </li>	  
+	  <li class='fragment'>
+	    and scraping is the act of downloading the html and files.
+	  </li>
+	  <li class='fragment'>
+	    This is all your browser does when you visit a site,
+	  </li>
+	  <li class='fragment'>
+	    but beware of policies and <a href="ch06.html#/10/">terms of service</a>.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Some data scraping utilities/methods:
+	      <ul>
+		<li class='fragment'>
+		  Python: Beautiful Soup (module)
+		</li>
+		<li class='fragment'>
+		  R: rvest (module)
+		</li>		
+		<li class='fragment'>
+		  Command line: &quot;wget&quot; (linux command)
+		</li>
+		<li class='fragment'>
+		  GUI: point and click (human operation)
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Required readings </h3>
+	  <a href="https://blog.hartleybrody.com/web-scraping/">I Don't Need No Stinking API</a><br>
+	  <a href="https://www.scrapesentry.com/scraping-wiki/web-scraping-legal-or-illegal/">Web scraping: legal or illegal?</a>
+	</section>
+	
+	<section>
+	  <h3>Libraries</h3>
+
+	  <li class='fragment'>
+	    Librarys are not just about books.
+	  </li>
+	  <li class='fragment'>
+	    Collections include data sets, and affiliates gain access.
+	  </li>
+	  <li class='fragment'>
+	    This also includes institutional access to private websites.
+	  </li>	  
+	  <li class='fragment'>
+	    For example, Drexel has access to the Associated Press images.
+	  </li>
+	  <li class='fragment'>
+	    Learn how to use the <a href="http://libguides.library.drexel.edu/az.php">library website</a>.
+	  </li>
+	  <li class='fragment'>
+	    If something is not there, but could be, then <a href="https://www.library.drexel.edu/make-appointment-librarian">ask a librarian</a>!
+	  </li>	  
+
+	</section>
+
+	<section>
+	  <h3>Open data access</h3>
+
+	  <li class='fragment'>
+	    Not all data is restricted.
+	  </li>
+	  <li class='fragment'>
+	    Publicly-accessible data is called &quot;open data.&quot;
+	  </li>	  
+	  <li class='fragment'>
+	    E.g., Wikipedia, Project Gutenberg, or the Internet Archive.
+	  </li>
+	  <li class='fragment'>
+	    This concept is closely related to open-access software,
+	  </li>
+	  <li class='fragment'>
+	    which has led to large scientific and commercial growth
+	  </li>
+	  <li class='fragment'>
+	    through the impact of programming languages and modules.
+	  </li>
+	  <li class='fragment'>
+	    What data should be open and available?
+	  </li>
+	  <li class='fragment'>
+	    While PM voting records should probably be open,
+	  </li>
+	  <li class='fragment'>
+	    personal data, like medical records, should probably be closed.
+	  </li>	  
+	  <li class='fragment'>
+	    Required reading: <a href="https://en.wikipedia.org/wiki/Open_data#Arguments_for_and_against_open_data">Arguments for and against open data</a>
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Data processing challenges</h3>
+
+	  <li class='fragment'>
+	    Open data has big potential for advancing problems forward.
+	  </li>
+	  <li class='fragment'>
+	    Data is often opened to cultivate research around a problem.
+	  </li>
+	  <li class='fragment'>
+	    Workshops sometimes hold &quot;shared tasks&quot; and release data.
+	  </li>
+	  <li class='fragment'>
+	    Every year, Yelp! has a open <a href="https://www.yelp.com/dataset_challenge">Dataset Challenge</a>.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> <a href="https://www.kaggle.com/">Kaggle</a> is a website devoted to data challenges.
+	      <ul>
+		<li class='fragment'>
+		  It is a great place to get into data science,
+		</li>		
+		<li class='fragment'>
+		  where companies release <a href="https://www.kaggle.com/datasets">data</a>, and post a reward.
+		</li>
+		<li class='fragment'>
+		  Sometimes the reward is big money,
+		</li>
+		<li class='fragment'>
+		  and other times it is an awesome job!
+		</li>
+	      </ul>
+	    </li>
+	  </ul>	  
+
+	</section>
+	
+	<section>
+	  <h3>Recap</h3>
+
+	  <li class='fragment'>
+	    Data comes from closed and open sources,
+	  </li>
+
+	  <li class='fragment'>
+	    but if it is on the internet you can probably get it.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Data can usually be acquired with creativity,
+	  </li>
+
+	  <li class='fragment'>
+	    and is produced with often unforeseen ethical implications.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Take care with data licenses and read the fine print.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Next time: <a href="ch07.html">Pre-processing</a>
+	      <ul>
+		<li class='fragment'>
+		  What is data munging?
+		</li>
+		<li class='fragment'>
+		  What makes data high quality?
+		</li>
+		<li class='fragment'>
+		  How can data be cleaned?
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>	
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>
