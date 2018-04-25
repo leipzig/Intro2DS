@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 7</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+    <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>Pre-processing</h3>
+	  <center>
+	    <a href="https://halobi.com/2015/02/infographic-data-quality-in-bi-the-costs-and-benefits/">
+	      <img src="./images/data-quality-infographic_clip.png" alt=" " style="width: 50%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>
+				
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="index.html">Introdution to data science</a><br>
+	      </medium>
+	      <small>
+		Term: Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Some themes</h3>
+
+	  <li class='fragment'>
+	    Acquired data varies greatly in quality.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Cleaning/pre-processing data take a lot of time.
+	  </li>
+
+	  <li class='fragment'>
+	    pre-processing tasks exist throughout pipelines.
+	  </li>
+
+	  <li class='fragment'>
+	    Alaways save random number seeds for reproducibility!
+	  </li>	  
+
+	</section>
+	
+	<section>
+	  <h3>Curation, in general</h3>
+
+	  <li class='fragment'>
+	    Curation is a broad and important data science,
+	  </li>	  
+	  <li class='fragment'>
+	    and generally refers to data management.
+	  </li>	  
+	  <li class='fragment'>
+	    Curation tasks appear throughout the data science lifecycle.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'>A few examples:
+	      <ul>
+		<li class='fragment'>
+		  At collection where/how to store data?
+		</li>
+		<li class='fragment'>
+		  Before analyzing, is data clean or complete?
+		</li>
+		<li class='fragment'>
+		  When exploring, should data be re-organized?
+		</li>
+		<li class='fragment'>
+		  While analyzing, should some data be witheld?
+		</li>
+		<li class='fragment'>
+		  Upon deployment, store user interaction records.
+		</li>
+		<li class='fragment'>
+		  How should results be stored for visualization?
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Required reading: <a href="http://www.datasciencecentral.com/profiles/blogs/in-big-data-preparing-the-data-is-most-of-the-work">The hard part</a></h3>
+	</section>
+	
+	<section>
+	  <h3>Data intake</h3>	  
+	  <li class='fragment'>
+	    It's good to have an idea of size before downloading.
+	  </li>
+	  <li class='fragment'>
+	    Don't neglect considering Big Data constraints (the Vs).
+	  </li>
+	  <li class='fragment'>
+	    If data is streaming, benchmark and plan ahead.
+	  </li>
+	  <li class='fragment'>
+	    In addition, vet an early sample
+	  </li>	  
+	  <li class='fragment'>
+	    and make plans to clean data on intake.
+	  </li>	  
+	  <li class='fragment'>
+	    It can be considerably easier to &quot;munge&quot; front end.
+	  </li>
+	  <li class='fragment'>
+	    Required reading: <a href="https://en.wikipedia.org/wiki/Data_wrangling">What is data munging/wrangling</a>?
+	  </li>
+	</section>
+	
+	<section>
+	  <h3>Required reading: <a href="http://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html?_r=0">Being a &quot;data janitor&quot;</a></h3>
+	  <center>
+	    <a href="http://www.junglelightspeed.com/the-evolution-of-the-expert/">
+	      <img src="./images/data_janitor.jpg" alt=" " style="width: 90%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Understanding what you've got</h3>
+	  <li class='fragment'>
+	    <a href="ch06.html">As we saw</a>, data acquisition is its own art and process.
+	  </li>
+	  <li class='fragment'>
+	    Once you have data, it's important to look closely at it.
+	  </li>
+	  <li class='fragment'>
+	    Depending on the source, data can be clean or messy.
+	  </li>
+	  <li class='fragment'>
+	    E.g., a csv of numeric values might be &quot;clean&quot;,
+	  </li>
+	  <li class='fragment'>
+	    while inconsistent, scraped html might be &quot;dirty&quot;.
+	  </li>
+	  <li class='fragment'>
+	    Anything in between can happen, e.g., NAs in a csv,
+	  </li>
+	  <li class='fragment'>
+	    or a formatting error throws off the number of columns.
+	  </li>
+
+	  <li class='fragment'>
+	    Really, though, beauty lies in the eye of the beholder...
+	  </li>	  
+	  <li class='fragment'>
+	    ...and clean vs. messy can have more to do with expectations.
+	  </li>	  
+	  <li class='fragment'>
+	    Handling these considerations is often called pre-processing.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Quality</h3>
+	  <li class='fragment'>
+	    On the other hand, data quality can be very objective.
+	  </li>
+	  <li class='fragment'>
+	    Hand-coded data is prone to human error.
+	  </li>
+	  <li class='fragment'>
+	    E.g., a one digit error in a product number at register.
+	  </li>
+	  <li class='fragment'>
+	    Humans can also algorithmically induce errors via scripting,
+	  </li>
+	  <li class='fragment'>
+	    e.g., every returned value incorrect with an index is off by 1.
+	  </li>
+	  <li class='fragment'>
+	    Sometimes an algorithm returns terrible collection results,
+	  </li>
+	  <li class='fragment'>
+	    like can happen in optical character recognition (text scanning).
+	  </li>
+	  <li class='fragment'>
+	    Avoiding/rectifying issues like these is paramount with curation.
+	  </li>
+	</section>
+	
+	<section>
+	  <h3>Preparation</h3>
+	  <li class='fragment'>
+	    Pre-processing isn't just about correction or cleaning data.
+	  </li>
+	  <li class='fragment'>
+	    Oftentimes, data needs to be modified from a raw form.
+	  </li>
+	  <li class='fragment'>
+	    This is often with text-based machine learning,
+	  </li>
+	  <li class='fragment'>
+	    where a transcript might need to be organized as discourse.
+	  </li>
+	  <li class='fragment'>
+	    Beyond this, many models use the &quot;bag-of-words&quot; framework,
+	  </li>
+	  <li class='fragment'>
+	    which represents texts by counts of words.
+	  </li>
+	  <li class='fragment'>
+	    Text preparation goes hand in hand with regular expressions,
+	  </li>
+	  <li class='fragment'>
+	    which establish word-defining patterns.
+	  </li>
+	  <li class='fragment'>
+	    and are central to document &quot;cleaning&quot; tasks,
+	  </li>
+	  <li class='fragment'>
+	    like removing headers and markup from html.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Reduction</h3>
+	  <li class='fragment'>
+	    This relates to some aspects of data cleansing
+	  </li>
+	  <li class='fragment'>
+	    insofar as unnecessary data, like markup in text, is removed.
+	  </li>
+	  <li class='fragment'>
+	    However, logistics might make collecting all data impossible,
+	  </li>
+	  <li class='fragment'>
+	    as is the case with the <a href="https://en.wikipedia.org/wiki/Data_reduction">Kepler satelite photography</a>,
+	  </li>	  
+	  <li class='fragment'>
+	    but an analysis may also not benefit from including all data,
+	  </li>
+	  <li class='fragment'>
+	    and reduction might include smoothing or down-sampling.
+	  </li>
+	</section>	
+
+	<section>
+	  <h3>Sampling and randomness</h3>
+
+	  <li class='fragment'>
+	    So, reduction might include decreasing resolution,
+	  </li>
+
+	  <li class='fragment'>
+	    or feature selection, e.g., choosing content words for analysis,
+	  </li>
+
+	  <li class='fragment'>
+	    but if there is just plain more data than is necessary,
+	  </li>
+
+	  <li class='fragment'>
+	    or if data must be split for training and validation,
+	  </li>
+	  
+	  <li class='fragment'>
+	    random sampling becomes an important pre-processing task.
+	  </li>	  
+
+	  <li class='fragment'>
+	    Science should always be reproducible, randomness included,
+	  </li>
+
+	  <li class='fragment'>
+	    which is where pseudorandom numbers come into play.
+	  </li>
+	  
+	  <li class='fragment'>
+	    So, when sampling data, always save random number &quot;seeds,&quot;
+	  </li>
+	  <li class='fragment'>
+	    which identify a particular randomization for reproducibility.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Required reading: <a href="http://www.howtogeek.com/183051/htg-explains-how-computers-generate-random-numbers/">Random numbers</a></h3>
+	</section>
+	
+	<section>
+	  <h3>Feature selection</h3>
+	  <li class='fragment'>
+	    In machine learning, &quot;features&quot; are predictive variables.
+	  </li>
+	  <li class='fragment'>
+	    Selection can be a choice of columns from a table,
+	  </li>	  
+	  <li class='fragment'>
+	    or be considerably more complex with unstructured data,
+	  </li>
+	  <li class='fragment'>
+	    and involve extraction of domain-relevant terms from texts,
+	  </li>
+	  <li class='fragment'>
+	    or with images, determining what features classify cats vs. dogs.
+	  </li>
+	  <li class='fragment'>
+	    Even if &quot;tail shape&quot; is identified as a salient feature,
+	  </li>
+	  <li class='fragment'>
+	    it becomes necessary to extract sections that represent tails.
+	  </li>
+	  <li class='fragment'>
+	    This, and feature selection in general, is not an easy task!
+	  </li>
+	  <li class='fragment'>
+	    Some research programs are devoted to feature selection,
+	  </li>
+	  <li class='fragment'>
+	    and attention should be given when building models.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Required readings</h3>
+	  <a href="http://machinelearningmastery.com/an-introduction-to-feature-selection/">An introduction to feature selection</a> <br>
+	  <a href="https://cvdazzle.com/">Camouflage from face detection</a> <br>	  
+	  <center>
+	    <a href="https://creativentechno.wordpress.com/2012/02/18/face-recognition/">
+	      <img src="./images/facial-recognition-algorithms.jpg" alt=" " style="width: 80%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+
+	
+	<section>
+	  <h3>Integration</h3>
+	  <li class='fragment'>
+	    Sometimes multiple data sources are necessary for an analysis.
+	  </li>
+	  <li class='fragment'>
+	    Integration can be straightforward with structured data,
+	  </li>
+	  <li class='fragment'>
+	    where record values are joined according to keys,
+	  </li>
+	  <li class='fragment'>
+	    but oftentimes this may not be the case.
+	  </li>
+	  <li class='fragment'>
+	    E.g., how can one link images by location names, like Paris
+	  </li>
+	  <li class='fragment'>
+	    to geospatial shapefiles for an analysis?
+	  </li>
+	  <li class='fragment'>
+	    Python has an API that determines lat/lons (<a href="https://pypi.python.org/pypi/geocoder">geocoder</a>),
+	  </li>
+	  <li class='fragment'>
+	    so after characterizing an integration need,
+	  </li>
+	  <li class='fragment'>
+	    it's always best to see if someone else has solved the task!
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Discretization</h3>
+	  <li class='fragment'>
+	    This is about grouping data meaningfully,
+	  </li>
+	  <li class='fragment'>
+	    like into the bins of a histogram,
+	  </li>
+	  <li class='fragment'>
+	    but grouping most often assumes some choice.
+	  </li>
+	  <li class='fragment'>
+	    So, care should be take for how grouping is executed,
+	  </li>
+	  <li class='fragment'>
+	    whether by tuning the bin sizes/numbers for a histogram
+	  </li>
+	  <li class='fragment'>
+	    or carefully choosing algorithms for network clustering.
+	  </li>
+	  <li class='fragment'>
+	    Commonly, clustering algorithms depend on initial states,
+	  </li>
+	  <li class='fragment'>
+	    whereupon randomization once again plays a role with seeds
+	  </li>
+	  <li class='fragment'>
+	    and &quot;bootstrapping&quot; multiple runs for regularity.
+	  </li>
+	</section>
+	
+	<section>
+	  <h3>Recap</h3>
+
+	  <li class='fragment'>
+	    Acquired data varies greatly in quality.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Cleaning/pre-processing data take a lot of time.
+	  </li>
+
+	  <li class='fragment'>
+	    pre-processing tasks exist throughout pipelines.
+	  </li>
+
+	  <li class='fragment'>
+	    Alaways save random number seeds for reproducibility!
+	  </li>	  
+	  <br>
+	  <ul>
+	    <li class='fragment'> Next time: <a href="ch08.html">Storage</a>
+	      <ul>
+		<li class='fragment'>
+		  structured data types
+		</li>
+		<li class='fragment'>
+		  determining how to store data
+		</li>
+		<li class='fragment'>
+		  data retrieval systems
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>	
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>
