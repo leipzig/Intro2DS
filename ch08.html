@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 8</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+    <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>Storage</h3>
+	  <center>
+	    <a href="https://www.rapidsslonline.com/blog/mobile-cloud-computing-future-mobile-applications/">
+	      <img src="./images/cloud-computing.jpg" alt=" " style="width: 50%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>
+				
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="index.html">Introdution to data science</a><br>
+	      </medium>
+	      <small>
+		Term: Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Some themes</h3>
+
+	  <li class='fragment'>
+	    Data is being produced faster than it can be stored.
+	  </li>
+	  
+	  <li class='fragment'>
+	    So, data stored should be &quot;worth its weight,&quot;
+	  </li>
+	  
+	  <li class='fragment'>
+	    and how it's stored should reflect its natural structure,
+	  </li>
+
+	  <li class='fragment'>
+	    in addition to expectations on how it will be used.
+	  </li>	  
+
+
+	</section>
+	
+	<section>
+	  <h3>Where is most data stored?</h3>	
+  
+	  <li class='fragment'>
+	    Digital storage formats are relatively young (from around 1950),
+	  </li>
+	  <li class='fragment'>
+	    but by capacity, these overtook analog in 2002,
+	  </li>
+	  <li class='fragment'>
+	    and by 2007, 94% of all data was stored in digital formats,
+	  </li>
+	  <li class='fragment'>
+	    with more than half of this present on disks.
+	  </li>
+	  <li class='fragment'>
+	    The rate at which data is produced is growing exponentially,
+	  </li>
+	  <li class='fragment'>
+	    and by 2011, only half of that produced had a permanant home.
+	  </li>
+	  <li class='fragment'>
+	    So, while the cost of digital storage is always going down,
+	  </li>
+	  <li class='fragment'>
+	    space will always be at a premium
+	  </li>
+	  <li class='fragment'>
+	    and the data we store should be chosen carefully,
+	  </li>
+	  <li class='fragment'>
+	    with its growing size motivating storage for efficient access.
+	  </li>
+	</section>
+	
+	<section>
+	  <h3>Required readings: Inforgraphics</h3>
+	  <a href="https://mozy.com/infographics/where-is-the-worlds-data-stored/">Where is the world's data stored?</a><br>
+	  <a href="https://mozy.com/infographics/when-will-we-run-out-of-space/">When will we run out of space?</a><br>
+	  <a href="http://mashable.com/2011/10/08/digital-storage-infographic/#w.rNjUkzikqU">The history of digital storage</a><br>
+	</section>
+	
+	<section>
+	  <h3>Too many disks.</h3>
+	  <li class='fragment'>
+	    So now and going forward, most data is stored on disk,
+	  </li>
+	  <li class='fragment'>
+	    but with personal data constantly growing, we should ask:
+	  </li>
+	  <li class='fragment'>
+	    how many TBs is my digital footprint,
+	  </li>
+	  <li class='fragment'>
+	    and how much disk space should I keep physically?
+	  </li>	  
+	  <li class='fragment'>
+	    Hard drives are getting cheaper, but portability comes at cost,
+	  </li>
+	  <li class='fragment'>
+	    with risks for damage in transit or loss.
+	  </li>
+	  <li class='fragment'>
+	    This is why networks and the cloud exist, but what is the cloud?
+	  </li>	  
+	  
+	</section>
+
+	<section>
+	  <h3>What is the cloud?</h3>
+	  <li class='fragment'>
+	    Is cloud data actually stored ephemerally in space? NO!
+	  </li>
+	  <li class='fragment'>
+	    A cloud is just a system of disks on servers networked to you.
+	  </li>
+	  <li class='fragment'>
+	    Most likely, your cloud is distributed across multiple drives,
+	  </li>
+	  <li class='fragment'>
+	    possibly in a warehouse in Chicago or deep <a href="http://www.datacenterknowledge.com/archives/2014/12/01/seagate-moves-into-iron-mountains-underground-data-center/">underground</a>!
+	  </li>	  
+	  <li class='fragment'>
+	    As digital footprints become larger, more will be cloud-based,
+	  </li>
+	  <li class='fragment'>
+	    convenient for access and the security of data redundance.
+	  </li>
+	  <li class='fragment'>
+	    Is personal data safe in the cloud? There are many opinions,
+	  </li>
+	  <li class='fragment'>
+	    and digital footprint safety is perhaps just as important.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Required readings</h3>
+	  <a href="http://www.pcmag.com/article2/0,2817,2372163,00.asp">What is cloud computing?</a><br>
+	  <a href="https://en.wikipedia.org/wiki/Cloud_computing_security#Data_security">Security issues associated with the cloud.</a><br>
+	  <a href="http://www.nytimes.com/interactive/2016/01/29/technology/data-privacy-policy-us-europe.html">Digital footprints and privacy.</a>
+	</section>
+
+	<section>
+	  <h3>Storage systems</h3>
+	  
+	  <li class='fragment'>
+	    Generally, on a machine there is some type of file system.
+	  </li>
+
+	  <li class='fragment'>
+	    When storing files, it is best to be consistent and organized.
+	  </li>	  
+	  <br>
+	  <ul>
+	    <li class='fragment'> Some good-hygiene practices:
+	      <ul>
+		<li class='fragment'>
+		  Keep code in separate directories from data.
+		</li>
+		<li class='fragment'>
+		  Don't put too many files in one directory.
+		</li>
+		<li class='fragment'>
+		  Organize files into directories by their contents.
+		</li>
+		<li class='fragment'>
+		  Don't replicate files for multiple uses&mdash;just link!
+		</li>
+		<li class='fragment'>
+		  If it doesn't get used often, compress a file.
+		</li>
+                                    <li class='fragment'>
+                                      Delete intermediates, use a pipeline
+                                    </li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>
+
+	<!-- <section> -->
+	<!--   <h3>Storage systems</h3> -->
+
+	<!--   <li class='fragment'> -->
+	<!--     A file system is about as basic as it gets for access. -->
+	<!--   </li> -->
+
+	<!--   <li class='fragment'> -->
+	<!--     Staying low-level is great for portability, but not necessarily access. -->
+	<!--   </li> -->
+	  
+	<!--   <li class='fragment'> -->
+	<!--     Let's think about medical records. -->
+	<!--   </li>	   -->
+
+	<!--   <li class='fragment'> -->
+	<!--     It's perfectly reasonable to store each patient in a separate directory, -->
+	<!--   </li> -->
+
+	<!--   <li class='fragment'> -->
+	<!--     with each visit a record in a separate file. -->
+	<!--   </li> -->
+
+	<!--   <li class='fragment'> -->
+	<!--     Suppose you want to see every visit with one doctor, across all patients. -->
+	<!--   </li> -->
+	  
+	<!--   <li class='fragment'> -->
+	<!--     How can we find just these records efficiently? -->
+	<!--   </li>	   -->
+	  
+	<!-- </section>	 -->
+	
+	<section>
+	  <h3>Storage formats</h3>
+	  <!-- <li class='fragment'> -->
+	  <!--   Moving on from the vague generalities of modern data stoage, -->
+	  <!-- </li>	   -->
+	  <li class='fragment'>
+	    Let's go over some common data formats that exist in the wild.
+	  </li>	  
+	  <li class='fragment'>
+	    Most file types have associated a file extension, e.g., .txt,
+	  </li>	  
+	  <li class='fragment'>
+	    but these simply indicate format type, are aren't necessary.
+	  </li>
+	  <li class='fragment'>
+	    While there is no such thing as &quot;plain text&quot; (recall <a href="ch03.html#/9">utf-8</a>),
+	  </li>	  
+	  <li class='fragment'>
+	    with a text file (.txt) there is no expectation of structure;
+	  </li>
+	  <li class='fragment'>
+	    there might be different data inside (e.g., text and numbers),
+	  </li>
+	  <li class='fragment'>
+	    but with no guarantee of presence or placement in file.
+	  </li>
+
+	</section>
+
+	<section>
+	  <h3>Text files&mdash;can you find the structure?</h3>
+	  
+	  <center>
+	    <a href="http://www.usconstitution.net/const.txt">
+	      <img src="./images/constitution.txt.png" alt=" " style="width: 90%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  
+	</section>
+	
+	<section>
+	  <h3>Ordered arrays</h3>
+
+	  <li class='fragment'>
+	    These are perhaps the simplest form of structured data.
+	  </li>
+	  <li class='fragment'>
+	    Matrix arrays (2D, e.g., .csv or .tsv) have rows and columns,
+	  </li>
+	  <li class='fragment'>
+	    which rigidly assume all rows have the same width.
+	  </li>
+	  <li class='fragment'>
+	    This make ordered arrays dense data objects,
+	  </li>
+	  <li class='fragment'>
+	    both in storage and in memory while programming.
+	  </li>
+	  <li class='fragment'>
+	    Header labels generally indicate column contents.
+	  </li>
+	  <li class='fragment'>
+	    Important: it's best to have columns as attributes of rows!
+	  </li>
+	  <li class='fragment'>
+	    I.e., each row should be an independent &quot;record.&quot;
+	  </li>	  
+	  <li class='fragment'>
+	    Why? Files are read left to right, from top to bottom.
+	  </li>
+	  <li class='fragment'>
+	    If each column were a record (bad), 
+	  </li>	  
+	  <li class='fragment'>
+	    the whole file would have to be read before processing.
+	  </li>	  
+	  <li class='fragment'>
+	    This has severe memory implications when handling large data.
+	  </li>	  
+	</section>
+
+	<section>
+	  <h3>So... images are are 3D arrays!</h3>
+	  
+	  <center>
+	    <a href="http://www.slideshare.net/mikeranderson/2013-1114-enter-thematrix">
+	      <img src="./images/enter-the-matrix.jpg" alt=" " style="width: 80%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  
+	</section>	
+
+	<section>
+	  <h3>Associative arrays</h3>
+
+	  <li class='fragment'>
+	    A simple array ordering isn't always appropriate data structure.
+	  </li>
+	  <li class='fragment'>
+	    Vectors are dense&mdash;you have to be consistent with columns.
+	  </li>
+	  <li class='fragment'>
+	    Suppose a scientist is gps tracking Koala bears,
+	  </li>
+
+	  <li class='fragment'>
+	    and along with names and ages, they record lat-lon sequences.
+	  </li>
+	  
+	  <li class='fragment'>
+	    The earlier-tagged animals will have more data points,
+	  </li>
+
+	  <li class='fragment'>
+	    and the longer the experiment is run, the more points will exist.
+	  </li>
+
+	  <li class='fragment'>
+	    In order to store each Koala as a record, we need flexibilty.
+	  </li>
+
+	</section>
+
+	<section>
+	  <h3>Associative arrays</h3>
+
+	  <li class='fragment'>
+	    Associative arrays are characterized by key-value pairs.
+	  </li>
+
+	  <li class='fragment'>
+	    A common encoding is Javascript Object Notation (.json),
+	  </li>
+
+	  <li class='fragment'>
+	    and programming languages have assoicative array objects.
+	  </li>
+	  
+	  <li class='fragment'>
+	    A key is just a name for access, a value can be anything,
+	  </li>
+
+	  <li class='fragment'>
+	    and they can next data heirarchically.
+	  </li>
+	  
+	  <li class='fragment'>
+	    In our example, each Koala could be its own associative array.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Keys for name, age, etc., provide access to text and numbers,
+	  </li>
+
+	  <li class='fragment'>
+	    but now a key &quot;locations&quot; values a vector of coordinates,
+	  </li>	  
+
+	  <li class='fragment'>
+	    and the lists can be different sizes!
+	  </li>	  
+
+	</section>
+
+	<section>
+	  <h3>Associative arrays (JSON)</h3>
+	  
+	  <center>	    
+	    <img src="./images/koalas.json.png" alt=" " style="width: 80%;max-height: 100%;object-fit: contain;Float: center" />
+	  </center>
+	  
+	</section>
+	
+	<section>
+	  <h3>Schemas</h3>
+
+	  <li class='fragment'>
+	    Associative arrays are well-characterized by flexibility,
+	  </li>
+
+	  <li class='fragment'>
+	    but to be navigable, should have consistent structure.
+	  </li>
+
+	  <li class='fragment'>
+	    I.e., each record should have a consistent form, or schema.
+	  </li>
+	  
+	  <li class='fragment'>
+	    In our example, each record had three and only three fields,
+	  </li>
+
+	  <li class='fragment'>
+	    and while flexible, values were consistently in place.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Suppose now that the scientist wished to track joeys,
+	  </li>
+	  
+	  <li class='fragment'>
+	    and that not all koalas have had any children.
+	  </li>
+
+	  <li class='fragment'>
+	    good data hygiene in a new &quot;children&quot; field 
+	  </li>	  
+
+	  <li class='fragment'>
+	    might reserve &quot;null,&quot; or an empty array for non-parents.
+	  </li>	  
+
+	</section>
+	
+	<section>
+	  <h3>Relational databases</h3>
+	  <li class='fragment'>
+	    The schema concept goes beyond files and program objects.
+	  </li>	  
+	  <li class='fragment'>
+	    Relational databases are whole storage &amp; retrieval systems.
+	  </li>
+	  <li class='fragment'>
+	    They are based around tables of records linked by keys.
+	  </li>
+	  <li class='fragment'>
+	    Key-links between tables make regular access efficient.
+	  </li>
+	  <li class='fragment'>
+	    E.g., link a doctor's record to each of their patients',
+	  </li>
+	  <li class='fragment'>
+	    These systems also simplify joins and set operations for data.
+	  </li>	  
+	  <li class='fragment'>
+	    Common implementations include SQL, Oracle, and SAP.
+	  </li>	  
+	  <li class='fragment'>
+	    Many are proprietary, but a good number are open and free.
+	  </li>	  
+	</section>	
+
+	<section>
+	  <h3>Required reading: <a href="http://computer.howstuffworks.com/question599.htm">Relational databases</a></h3>
+	  
+	  <center>
+	    <a href="https://neo4j.com/blog/why-graph-data-relationships-matter/">
+	      <img src="./images/tables-linked.jpg" alt=" " style="width: 55%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  
+	</section>
+                  <section>
+                   NoSQL Databases
+                   <li class='fragment'>
+                                     Key-value store
+                   </li>
+                   <li class='framgment'>
+                                     Document store
+                   </li>
+                   <li class='fragment'>
+                                     Graph database
+                  </li>
+                  <li>
+                     Column-store
+   </li>
+</section>
+	<!-->
+	<section>
+	  <h3>OLTP vs. OLAP</h3>
+	  <li class='fragment'>
+	    High-level data access systems categorize into two groups.
+	  </li>
+	  <li class='fragment'>
+	    On-line Transaction Processing (OLTP), for operational actions.
+ 	  </li>
+	  <li class='fragment'>
+	    On-line Analytical Processing (OLTP), for intelligence insights.
+	  </li>	  
+	  <li class='fragment'>
+	    They are often both built from relational database systems,
+	  </li>
+	  <li class='fragment'>
+	    but value different features.
+	  </li>
+	  <li class='fragment'>
+	    OLTP elevates integrity and uptime for quick, reliable access.
+	  </li>
+	  <li class='fragment'>
+	    E.g., adding/updating/deleting a record for a customer.
+	  </li>
+	  <li class='fragment'>
+	    OLAP elevates access to certain aggregations for analysis.
+	  </li>
+	  <li class='fragment'>
+	    E.g., purchase histories across all customers.
+	  </li>
+	  <li class='fragment'>
+	    OLAPs are often called data warehouses, and are denormalized.
+	  </li>
+	  <li class='fragment'>
+	    I.e., data may exist redundantly for analytic convenience.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Required reading: <a href="http://datawarehouse4u.info/OLTP-vs-OLAP.html">OLAP vs. OLTP</a></h3>
+	  
+	  <center>
+	    <a href="http://www.marklogic.com/blog/relational-databases-are-not-designed-for-mixed-workloads/">
+	      <img src="./images/OLAP-vs-OLTP-database-comparison.png" alt=" " style="width: 80%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  
+	</section>
+                  !-->
+	
+	<section>
+	  <h3>Recap</h3>
+
+	  <li class='fragment'>
+	    Data is being produced faster than it can be stored.
+	  </li>
+	  
+	  <li class='fragment'>
+	    So, data stored should be &quot;worth its weight,&quot;
+	  </li>
+	  
+	  <li class='fragment'>
+	    and how it's stored should reflect its natural structure,
+	  </li>
+
+	  <li class='fragment'>
+	    in addition to expectations on how it will be used.
+	  </li>	  
+	  <br>
+	  <ul>
+	    <li class='fragment'> Next time: <a href="ch09.html">Description</a>
+	      <ul>
+		<li class='fragment'>
+		  Letting data &quot;speak,&quot;
+		</li>
+		<li class='fragment'>
+		  summarization,
+		</li>
+		<li class='fragment'>
+		  and exploratory data analysis
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>	
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>
