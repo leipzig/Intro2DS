@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 9</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+    <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>Description</h3>
+	  <center>
+	    <a href="http://www.sthda.com/english/wiki/factominer-and-factoextra-principal-component-analysis-visualization-r-software-and-data-mining">
+	      <img src="./images/multiplot.png" alt=" " style="width: 50%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>
+				
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="index.html">Introdution to data science</a><br>
+	      </medium>
+	      <small>
+		Term: Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Some themes</h3>
+
+	  <li class='fragment'>
+	    EDA should always come first in a data science project,
+	  </li>
+
+	  <li class='fragment'>
+	    allowing first for assessment of data integrity,
+	  </li>
+
+	  <li class='fragment'>
+	    but also for modeling and hypothesis generation.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Data should be characterized from every angle.
+	  </li>
+
+	  <li class='fragment'>
+	    EDA on its own does not constitute a complete study.
+	  </li>
+
+	  <li class='fragment'>
+	    EDA helps to set the direction of a project.
+	  </li>	  
+
+	</section>
+	
+	<section>
+	  <h3>Exploratory data analysis</h3>
+
+	  <li class='fragment'>
+	    Data description falls under the umbrella of EDA,
+	  </li>
+	  
+	  <li class='fragment'>
+	    which after pre-processing, is a preliminary analysis
+	  </li>
+	  <li class='fragment'>
+	    that is an opportunity to check and summarize data.
+	  </li>
+	  <li class='fragment'>
+	    Attention is given to checking the integrity of data
+	  </li>
+	  <li class='fragment'>
+	    and making modeling decisions for the next stage of a project. 
+	  </li>
+
+	  <li class='fragment'>
+	    If data are in any way unfit for further analysis 
+	  </li>
+
+	  <li class='fragment'>
+	    EDA provides the direction to go back and continue munging
+	  </li>	  
+
+	  <li class='fragment'>
+	    and if interesting patterns are found through summarization,
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    they can direct hypotheses and modeling decisions.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Getting the big picture</h3>
+
+	  <li class='fragment'>
+	    An import EDA outcome is overview understanding,
+	  </li>
+	  <li class='fragment'>
+	    which can be accomplished through a number of mechanisms.
+	  </li>
+	  <li class='fragment'>
+	    If data are human readable (text), or structured (tables),
+	  </li>
+	  <li class='fragment'>
+	    viewing a sample of record can indicate sparsity or domain,
+	  </li>
+
+	  <li class='fragment'>
+	    but when data is Big this is not always effective,
+	  </li>
+
+	  <li class='fragment'>
+	    which is where summarization and visualization come in.
+	  </li>	  
+
+	  <li class='fragment'>
+	    Summarization often covers counting, centrality, and variation,
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    and is closely tied to data visualization
+	  </li>
+
+	  <li class='fragment'>
+	    which is focused on in <a href="./ch10.html">Ch. 10</a>.
+	  </li>
+	  
+	</section>
+
+	
+	<section>
+	  <h3>Performing EDA</h3>
+	  <li class='fragment'>
+	    We've read a little about the already from John Tukey.
+	  </li>
+	  <li class='fragment'>
+	    Tukey also wrote a whole book: <a href="https://books.google.com/books/about/Exploratory_Data_Analysis.html?id=UT9dAAAAIAAJ">Exploratory Data Analysis</a>,
+	  </li>
+	  <li class='fragment'>
+	    inspiring the creation of statistical programming languages.
+	  </li>
+	  <li class='fragment'>
+	    Without these, EDA in data science would not be possible
+	  </li>
+	  <li class='fragment'>
+	    with so much data and so many ways for representation.
+	  </li>
+	  <li class='fragment'>
+	    Examples include R, Python, Matlab, and Mathematica,
+	  </li>
+	  <li class='fragment'>
+	    and have large communities of scientific developers
+	  </li>
+	  <li class='fragment'>
+	    who make reusable tools for data processing and visualization.
+	  </li>
+	  <li class='fragment'>
+	    Some languages are open source, some require licenses,
+	  </li>
+	  <li class='fragment'>
+	    and all have their strengths and weaknesses.
+	  </li>
+
+	</section>
+
+	<section>
+	  <h3>
+	    Required reading:
+	    <a href="http://machinelearningmastery.com/understand-problem-get-better-results-using-exploratory-data-analysis/">
+	      EDA
+	    </a>
+	  </h3>
+	</section>
+
+	<section>
+	  <h3>Commonality and centrality</h3>
+
+	  <li class='fragment'>
+	    A a good first step is to see if one value represents many,
+	  </li>
+	  <li class='fragment'>
+	    and ask &quot;which values appear most frequently?&quot;
+	  </li>
+
+	  <li class='fragment'>
+	    A most common element in some data is called a &quot;mode.&quot;
+	  </li>
+	  
+	  <li class='fragment'>
+	    When data is numeric, centrality, or the &quot;middle,&quot; relevant.
+	  </li>
+	  
+	  <li class='fragment'>
+	    The middle is not always well-defined,
+	  </li>
+	  <li class='fragment'>
+	    and it can be measured through a variety of mechanisms.
+	  </li>
+	  <li class='fragment'>
+	    One way of measuring the middle of data is with the median,
+	  </li>
+
+	  <li class='fragment'>
+	    which is the value that has 50% of the data smaller,
+	  </li>
+
+	  <li class='fragment'>
+	    and is just one of many &quot;percentiles,&quot;
+	  </li>
+
+	  <li class='fragment'>
+	    e.g., a 35th percentile has 35% of the data smaller, etcetera.
+	  </li>
+	  
+	</section>
+
+	<section>
+	  <h3>Means</h3>
+
+	  <ul>
+	    <li class='fragment'>  Means (averages) also measure centrality:
+	      <ul>
+		<li class='fragment'>
+		  The arithmetic mean (expected value) is most common:
+		  <script type="math/tex; mode=display">
+		    \overline{x}_\text{a} = \frac{1}{n}(x_1+\cdots+x_n)
+		  </script>
+		</li>
+		<br>
+		<li class='fragment'>
+		  the geometric mean is for products:
+		  <script type="math/tex; mode=display">
+		    \overline{x}_\text{g} = \sqrt[n]{x_1\times\cdots\times x_n}
+		  </script>
+		</li>
+		<br>
+		<li class='fragment'>
+		  and the harmonic mean is for rates:
+		  <script type="math/tex; mode=display">
+		    \overline{x}_\text{h} = \frac{n}{\frac{1}{x_1}+\cdots+ \frac{1}{x_n}}
+		  </script>
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Required reading: <a href="https://betterexplained.com/articles/how-to-analyze-data-using-the-average/">finding the middle</a></h3>
+	  <center>
+	    <a href="http://donsteward.blogspot.com/2011/08/harmonic-mean.html">
+	      <img src="./images/means.png" alt=" " style="width: 60%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+
+	<section>
+	  <h3>Spread</h3>
+
+	  <li class='fragment'>
+	    It's also important to describe how numeric data are dispersed,
+	  </li>
+
+	  <li class='fragment'>
+	    i.e., are data bunched up or spread apart?
+	  </li>
+	  
+	  <li class='fragment'>
+	    Measures of spread describe how varied data are.
+	  </li>
+
+	  <li class='fragment'>
+	    Observing the different percentiles can indicate spread,
+	  </li>
+	  
+	  <li class='fragment'>
+	    which is one way box plots (visualization) accomplish this.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Spread is also commonly measured by variance,
+	  </li>
+
+	  <li class='fragment'>
+	    and it's square root, the standard deviation,
+	  </li>
+
+	  <li class='fragment'>
+	    which is often used for &quot;whiskers&quot; of box plots.
+	  </li>
+
+	</section>
+
+	<section>
+	  <h3>Variance</h3>
+
+	  <li class='fragment'>
+	    Variance is computed as the arithmetic average of
+	  </li>
+	  <br>
+	  <li class='fragment'>
+	    squared-differences from the arithmetic mean:
+	    <script type="math/tex; mode=display">
+	      \sigma^2 = \frac{1}{n}[(x_1-\overline{x}_a)^2+\cdots+(x_n-\overline{x}_a)^2]
+	    </script>
+	  </li>
+	  <br>
+	  <li class='fragment'>
+	    Squaring keeps things positive, but expresses the wrong units.
+	  </li>
+	  
+	  <li class='fragment'>
+	    To undo squaring, we can take the square root
+	  </li>
+
+	  <li class='fragment'>
+	    which is called the standard deviation (SD).
+	  </li>
+
+	</section>
+
+	<section>
+	  <h3>Box and whiskers</h3>
+
+	  <li class='fragment'>
+	    Box and whiskers plot are a simple data visualization
+	  </li>	  
+
+	  <li class='fragment'>
+	    that describe both centrality and spread for numeric data.
+	  </li>
+
+	  <li class='fragment'>
+	    The &quot;box&quot; shows 25th and 75th percentiles (bottom and top),
+	  </li>
+
+	  <li class='fragment'>
+	    in addition to the 50th percentile (median) through the middle.
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    &quot;Whiskers&quot; extend from the box to extreme points,
+	  </li>
+
+	  <li class='fragment'>
+	    often out to the farthest points within 1.5 SDs.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Points beyond whiskers are considered extreme, or, &quot;outliers.&quot;
+	  </li>	  
+
+	</section>
+
+
+	<section>
+	  <center>
+	    <a href="http://slideplayer.com/slide/6537675/">
+	      <img src="./images/boxplot.jpg" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Extreme variation</h3>
+	  
+	  <li class='fragment'>
+	    Human heights, weights, etc., are &quot;normal&quot; (bell-shaped).
+	  </li>
+
+	  <li class='fragment'>
+	    Normal variation is not very &quot;extreme.&quot;
+	  </li>	  
+
+	  <li class='fragment'>
+	    When data is normal, means and median are very similar.
+	  </li>
+
+	  <li class='fragment'>
+	    The median and harmonic mean are robust to extremeness.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Some example sources of extreme data:
+	      <ul>
+		<li class='fragment'>
+		  social networks
+		</li>
+		<li class='fragment'>
+		  city sizes
+		</li>
+		<li class='fragment'>
+		  stock prices
+		</li>
+		<li class='fragment'>
+		  seismic events
+		</li>
+		<li class='fragment'>
+		  weather events
+		</li>
+		<li class='fragment'>
+		  celestial objects
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Co-variation</h3>
+	  
+	  <li class='fragment'>
+	    Quantiles and deviations express 1-dimensional spread.
+	  </li>
+
+	  <li class='fragment'>
+	    It can important to describe how data vary together,
+	  </li>
+
+	  <li class='fragment'>
+	    e.g., does height correspond to weight?
+	  </li>
+	  
+	  <li class='fragment'>
+	    Scatter plots only exhibit variation in 2 or 3 dimensions,
+	  </li>
+
+	  <li class='fragment'>
+	    so pair-wise comparisons are a common visual approach.
+	  </li>
+	  
+	  <li class='fragment'>
+	    This is where methods for &quot;correlation&quot; come into play,
+	  </li>
+
+	  <li class='fragment'>
+	    which quantify the variation one variable explains in another.
+	  </li>
+
+	  <li class='fragment'>
+	    Common methods include Pearson's and Spearman's,
+	  </li>
+
+	  <li class='fragment'>
+	    which hinge on different assumptions,
+	  </li>
+
+	  <li class='fragment'>
+	    though higher values generally mean &quot;more related.&quot;
+	  </li>
+	</section>
+		
+	<section>
+	  <h3>Required reading: <a href="http://www.stats.org/causation-vs-correlation/">Correlation, causation?</a></h3>
+
+
+
+	</section>
+		
+	<section>
+	  <h3>Hypotheses generation</h3>
+
+	  <li class='fragment'>
+	    Where should a project go after EDA?
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    A central goal of EDA is data characterization.
+	  </li>
+
+	  <li class='fragment'>
+	    A good outcome of EDA could be testable questions,
+	  </li>
+
+	  <li class='fragment'>
+	    but a necessary outcome might be removal of some data
+	  </li>
+
+	  <li class='fragment'>
+	    Or having to go back to a pre-processing stage.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Some testable questions might be:
+	      <ul>
+		<li class='fragment'>
+		  Do one or more variables predict others?
+		</li>
+		<li class='fragment'>
+		  Does some behavior generate outliers?
+		</li>
+		<li class='fragment'>
+		  Do sales of an item trend with some particular marketing?
+		</li>
+		<li class='fragment'>
+		  Can a future participation be predicted?
+		</li>
+		<li class='fragment'>
+		  Is growth exponential or unsustainable? Will it crash?
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3>Recap</h3>
+
+	  <li class='fragment'>
+	    EDA should always come first in a data science project,
+	  </li>
+
+	  <li class='fragment'>
+	    allowing first for assessment of data integrity,
+	  </li>
+
+	  <li class='fragment'>
+	    but also for modeling and hypothesis generation.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Data should be characterized from every angle.
+	  </li>
+
+	  <li class='fragment'>
+	    EDA on its own does not constitute a complete study.
+	  </li>
+
+	  <li class='fragment'>
+	    EDA helps to set the direction of a project.
+	  </li>	  
+	  <br>
+	  <ul>
+	    <li class='fragment'> Next time: <a href="./ch10.html">Depiction</a>
+	      <ul>
+		<li class='fragment'>
+		  What are some common visualization types?
+		</li>		
+		<li class='fragment'>
+		  How can visualizations be interpreted?
+		</li>
+		<li class='fragment'>
+		  What are best practices with visualization?
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>	
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>
