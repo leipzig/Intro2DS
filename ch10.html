@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 10</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+    <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>Depiction</h3>
+	  <center>
+	    <a href="https://en.wikipedia.org/wiki/Charles_Joseph_Minard">
+	      <img src="./images/Minard_map_of_napoleon.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>
+				
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="index.html">Introduction to data science</a><br>
+	      </medium>
+	      <small>
+		Term: Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Some themes</h3>
+
+	  <li class='fragment'>
+	    Depicting data visually fulfills a variety of purposes,
+	  </li>
+	  
+	  <li class='fragment'>
+	    from data exploration and intuitions development,
+	  </li>
+
+	  <li class='fragment'>
+	    to descriptive storytelling through infographics,
+	  </li>
+	  
+	  <li class='fragment'>
+	    to expressions of analyses and interpretations of results,
+	  </li>
+
+	  <li class='fragment'>
+	    and even web-based, interactive products development.
+	  </li>
+
+	  <li class='fragment'>
+	    Regardless of purpose, there are key qualities for success,
+	  </li>	  
+
+	  <li class='fragment'>
+	    such as clarity, simplicity, and truth of representation.
+	  </li>	 
+	</section>
+	
+	<section>
+	  <h3>Exploration and visualization</h3>
+	  
+	  <li class='fragment'>
+	    While much of EDA is accomplished through summarization,
+	  </li>
+
+	  <li class='fragment'>
+	    like through objective measures of centrality and spread,
+	  </li>
+
+	  <li class='fragment'>
+	    it is also helpful to depict data visually.
+	  </li>
+	  
+	  <li class='fragment'>
+	    We've introduced box plots, which show these summaries,
+	  </li>
+
+	  <li class='fragment'>
+	    but visualization in EDA let's one see all data at once
+	  </li>
+
+	  <li class='fragment'>
+	    and form intuitive assessments about important patterns.
+	  </li>
+
+	  <li class='fragment'>
+	    Here, we'll go explore some common visualization types,
+	  </li>	  
+
+	  <li class='fragment'>
+	    and walk through best practices and interpretations.
+	  </li>	  
+	  
+	</section>
+	
+	<section>
+	  <h3>Histograms</h3>
+	  <li class='fragment'>
+	    A histogram exhibits the spread of a single data dimension.
+	  </li>
+
+	  <li class='fragment'>
+	    There are discrete bins into which the data points fall,
+	  </li>
+
+	  <li class='fragment'>
+	    which are tallied and shown as bars,
+	  </li>
+
+	  <li class='fragment'>
+	    with heights as counts (frequencies) or probabilities.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Here, bin width/spacing is the variable parameter;
+	  </li>
+
+	  <li class='fragment'>
+	    e.g., there can be equal-width and -probability bins.
+	  </li>
+
+	  <li class='fragment'>
+	    Important: probabilistic areas, not heights sum to 1!
+	  </li>
+
+	  <li class='fragment'>
+	    Kernal density estimates (KDEs) smooth histograms
+	  </li>	  
+
+	  <li class='fragment'>
+	    and algorithmically estimate underlying distributions.
+	  </li>	  
+	</section>
+
+	<section>
+	  <h3>Histograms</h3>
+	  <center>
+	    <a href="http://pythonhosted.org/PyQt-Fit/KDE_tut.html">
+	      <img src="./images/hist.png" alt=" " style="width: 75%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Scatter plots</h3>
+	  
+	  <li class='fragment'>
+	    Scatter plots exhibit covariation between data simply,
+	  </li>
+
+	  <li class='fragment'>
+	    by placing separate data dimensions on separate axes.
+	  </li>
+
+	  <li class='fragment'>
+	    Points are commonly tweaked for shape and color
+	  </li>
+
+	  <li class='fragment'>
+	    as a means for expressing multiple scatters together.
+	  </li>
+
+	  <li class='fragment'>
+	    Point size can express a third, &quot;intensity&quot; dimension.
+	  </li>
+	  
+	  <li class='fragment'>
+	    While depth and perspective can be used for true 3-d scatters,
+	  </li>
+
+	  <li class='fragment'>
+	    anything more is beyond physical perception.
+	  </li>
+	  
+	  <li class='fragment'>
+	    So for more comparisons, it's common make more plots,
+	  </li>
+
+	  <li class='fragment'>
+	    e.g., with an array of pairwise-comparison scatters,
+	  </li>
+
+	  <li class='fragment'>
+	    but mind axis ranges, inflating/deflating relationships.
+	  </li>
+
+	</section>
+
+	<section>
+	  <h3>Scatter plots</h3>
+	  <center>
+	    <a href="http://glowingpython.blogspot.com/2011/11/how-to-make-bubble-charts-with.html">
+	      <img src="./images/ScatterCrimeByState.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Density</h3>
+
+	  <li class='fragment'>
+	    An important scatter plot observable is density,
+	  </li>
+
+	  <li class='fragment'>
+	    which is straightforward when there are relatively few points,
+	  </li>
+	  
+	  <li class='fragment'>
+	    but plotting many same-color points obscures density.
+	  </li>
+
+	  <li class='fragment'>
+	    Once again, color comes in handy here,
+	  </li>
+
+	  <li class='fragment'>
+	    where, e.g., color gradients indicate more/less dense regions,
+	  </li>	  
+
+	  <li class='fragment'>
+	    however, this makes density another dimension of data,
+	  </li>	  
+
+	  <li class='fragment'>
+	    which must be determined algorithmically,
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    Common tools are once again binning and kernel smoothing,
+	  </li>
+	  <li class='fragment'>
+	    but beware, these rely on the same assumptions as histograms.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Scatter plots</h3>
+	  <center>
+	    <a href="http://stackoverflow.com/questions/31317765/python-randomly-subsamble-a-range-of-points-to-plot">
+	      <img src="./images/sampleVsHeatmap.png" alt=" " style="width: 75%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Line plots</h3>
+	  
+	  <li class='fragment'>
+	    When one of 2 dimensions are ordered, line plots can be useful.
+	  </li>
+	  <li class='fragment'>
+	    E.g., stock prices, daily temperatures, traffic density, etc.
+	  </li>	  
+	  <li class='fragment'>
+	    Don't forget, all these do is connect the dots,
+	  </li>	  
+	  <li class='fragment'>
+	    so points in between shouldn't generally be assumed,
+	  </li>
+	  <li class='fragment'>
+	    though in exploration, these help highlight trends.
+	  </li>
+
+	  <li class='fragment'>
+	    If a line plot jaggedly distracts from a shape,
+	  </li>
+	  
+	  <li class='fragment'>
+	    a variety of smoothing techniques can come in handy,
+	  </li>
+
+	  <li class='fragment'>
+	    e.g, moving averages are quite straightforward,
+	  </li>
+	  
+	  <li class='fragment'>
+	    but the different methods all have their assumptions,
+	  </li>
+
+	  <li class='fragment'>
+	    so smoothing should be taken with a grain of salt.
+	  </li>
+	  
+	</section>
+
+	<section>
+	  <h3>Line plots</h3>
+	  <center>
+	    <a href="http://minimaxir.com/2015/12/sf-arrests/">
+	      <img src="./images/SFCrimeMovingAverage.png" alt=" " style="width: 75%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a><br>
+	    A line chart in yellow with a 30-day moving average in black.
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Maps</h3>
+
+	  <li class='fragment'>
+	    With geospatial data, maps make for exciting visualizations.
+	  </li>
+
+	  <li class='fragment'>
+	    Points can be scattered atop political, natural etc. features.
+	  </li>	  	  
+
+	  <li class='fragment'>
+	    &quot;Choropleths&quot; use shade polygons according to intensities,
+	  </li>	  
+
+	  <li class='fragment'>
+	    and so are just polygon-binned scatter plots exhibiting density.
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    Don't forget: maps rely on projections&mdash;the earth is round!
+	  </li>
+
+	  <li class='fragment'>
+	    Some projections keep polygon area true to geography,
+	  </li>
+
+	  <li class='fragment'>
+	    while others focus on simplicity, making all bodies visible.
+	  </li>
+	  
+	  <li class='fragment'>
+	    &quot;Cartograms&quot; are maps that distort areas intentionally,
+	  </li>
+	  
+	  <li class='fragment'>
+	    and representing data intensities through polygon size.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Maps</h3>
+	  <center>
+	    <a href="http://si-siris.blogspot.com/2011/07/i-say-soda-you-say-pop.html">
+	      <img src="./images/popsodacoke.jpg" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	</section>
+	
+	<section>
+	  <h3>Required readings: Map projections</h3>
+	  > <a href="https://www.gislounge.com/common-map-projections/">Some common map projections explained</a><br>
+	  > <a href="https://xkcd.com/977/">What your favorite projection says about you</a><br>
+	  > <a href="https://bl.ocks.org/syntagmatic/ba569633d51ebec6ec6e">An interactive graphic comparing projections</a>
+	</section>
+	
+	<section>
+	  <h3>Infographics</h3>
+	  <li class='fragment'>
+	    Occasionally, EDA itself can result in a product.
+	  </li>
+
+	  <li class='fragment'>
+	    Infographics present summary information quickly and clearly,
+	  </li>
+
+	  <li class='fragment'>
+	    often cartoonifying visual information for easy consumption,
+	  </li>
+
+	  <li class='fragment'>
+	    and combining different visualization types into one.
+	  </li>
+	  
+	  <li class='fragment'>
+	    We've seen a number of these already!
+	  </li>
+
+	  <li class='fragment'>
+	    The goal: bingeably wrap descriptive observations together.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> A diverse few examples:
+	      <ul>
+		<li class='fragment'>
+		  <a href="https://visual.ly/cuts-beef">Cuts of beef</a>
+		</li>
+		<li class='fragment'>
+		  <a href="http://web.mta.info/nyct/maps/subwaymap.pdf">Subway maps</a>
+		</li>
+		<li class='fragment'>
+		  <a href="https://gsa-cmp-fileupload.s3.amazonaws.com/pdf6099%20%283%29.pdf?Mn9LsC_GfmXkeckbkrjkaEX8UVG6fRaZ">How to become president of the United States</a>
+		</li>
+		<li class='fragment'>
+		  <a href="http://www.halcyonmaps.com/infographics/#/tallest-buildings-throughout-history/">The tallest buildings throughout history</a>
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>One of the earliest infographics</h3>
+	  <center>
+	    <a href="https://en.wikipedia.org/wiki/Charles_Joseph_Minard">
+	      <img src="./images/Minard_map_of_napoleon.png" alt=" " style="width: 100%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	    <br>
+	    How many data dimensions are depicted here?
+	  </center>
+	</section>
+
+	<section>
+	  <h3>Interactivity</h3>
+	  <li class='fragment'>
+	    EDA in large or complex data sets can be challenging.
+	  </li>
+
+	  <li class='fragment'>
+	    It's great to be able to represent lots of data,
+	  </li>
+
+	  <li class='fragment'>
+	    but can one digest 1,000 scatter plots?
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    This is where sharable interactivity comes into play,
+	  </li>
+
+	  <li class='fragment'>
+	    made possible recently with advances in technology.
+	  </li>
+
+	  <li class='fragment'>
+	    Web-based apps allow viewers to traverse many plots,
+	  </li>
+	  
+	  <li class='fragment'>
+	    but to truly &quot;explore&quot; some data, movement is necessary.
+	  </li>
+
+	  <li class='fragment'>
+	    This can be as simple as a video from successive plots,
+	  </li>
+
+	  <li class='fragment'>
+	    and as complex as the panning and zooming in Google maps.
+	  </li>
+
+	  <li class='fragment'>
+	    Paramount to interactivity is intuitive navigation.
+	  </li>
+
+	</section>
+
+	<section>
+	  <h3>HTML and interactivity</h3>
+	  
+	  <li class='fragment'>
+	    HTML's malleability makes it an ideal host for interactivity.
+	  </li>
+
+	  <li class='fragment'>
+	    With much web-based programming performed in javascript,
+	  </li>
+
+	  <li class='fragment'>
+	    an extensive library for interactivity called <a href="https://d3js.org/">d3.js</a> was developed.
+	  </li>
+
+	  <li class='fragment'>
+	    Other languages have similar functionality,
+	  </li>
+
+	  <li class='fragment'>
+	    e.g., python has <a href="http://bokeh.pydata.org/en/latest/">Bokeh</a>,
+	    and R has <a href="http://shiny.rstudio.com/">Shiny</a>
+	  </li>	  
+
+	  <li class='fragment'>
+	    but these are less developed and/or not free to host!
+	  </li>
+
+	  <li class='fragment'>
+	    However, d3.js requires html, css, and javascript skills,
+	  </li>
+
+	  <li class='fragment'>
+	    so while the learning curve can be somewhat steeper,
+	  </li>	  
+
+	  <li class='fragment'>
+	    learning it leads to proficiency in web products development,
+	  </li>	  
+
+	  <li class='fragment'>
+	    which is an extremely marketable skill in data science.
+	  </li>	  
+	</section>
+
+	<section>
+	  <h3>Required derping with d3.js</h3>
+	  Some examples on the <a href="https://github.com/d3/d3/wiki/Gallery">d3.js galley</a> (explore this): <br>
+	  &emsp; A changing <a href="http://bl.ocks.org/mbostock/4060366">Voronoi tesselation</a> (midpoint boundaries).<br>
+	  &emsp; A <a href="http://bl.ocks.org/mbostock/2206590">click-to-zoom map</a>.<br>
+	  &emsp; An interactive map depicting <a href="http://xliberation.com/googlecharts/d3flights.html">US airline flights</a>.<br>
+	  &emsp; <a href="http://www.brightpointinc.com/2015-nfl-predictions/">NLF prediction</a> (2015) from Nate Silver's FiverThirtyEight blog.<br><br>
+	  Some external examples applying d3.js:<br>
+	  &emsp; <a href="http://www.koalastothemax.com/">koalastothemax</a> is reminiscent of mitosis!<br>
+	  &emsp; Facebook's <a href="http://www.nytimes.com/interactive/2012/05/17/business/dealbook/how-the-facebook-offering-compares.html">initial public offering</a>, via the New York Times.</br>
+	  &emsp; An interactive exploration of the <a href="http://mbtaviz.github.io/">MBTA</a> (Boston's subway)<br>
+	  &emsp; <a href="http://vax.herokuapp.com/">Vax!</a> a game about epidemic prevention<br>
+	</section>
+
+	<section>
+	  <h3>What's the point?</h3>
+
+	  <li class='fragment'>
+	    With so many visualizations easily accessible,
+	  </li>
+
+	  <li class='fragment'>
+	    it's important to maintain focus on goals for depiction.
+	  </li>
+
+	  <li class='fragment'>
+	    Consistent values include clarity, trueness, and simplicity,
+	  </li>
+
+	  <li class='fragment'>
+	    but often there is a message from analysis to display,
+	  </li>
+
+	  <li class='fragment'>
+	    so visualization can be essential to convey interpretation,
+	  </li>
+
+	  <li class='fragment'>
+	    as is the case with presentation in storytelling.
+	  </li>
+
+	  <li class='fragment'>
+	    So if an outcome is a business decision,
+	  </li>
+
+	  <li class='fragment'>
+	    significant emphasis should be placed on interpretation,
+	  </li>
+
+	  <li class='fragment'>
+	    which must be carried forward to recipients.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Required readings: Storytelling</h3>	  
+	  > <a href="http://www.forbes.com/sites/brentdykes/2016/03/31/data-storytelling-the-essential-data-science-skill-everyone-needs/#2ec0759ef0c8">The essential data science skill everyone needs</a><br>
+	  > <a href="https://hbr.org/2013/04/how-to-tell-a-story-with-data">How to tell a story with data</a><br>
+	  > <a href="http://chiefmartec.com/2016/04/storytelling-data-beautiful-metrics-cant-beat-words/">When beautiful metrics can't beat words</a><br>
+	  > <a href="https://dupress.deloitte.com/dup-us-en/topics/analytics/data-driven-storytelling.html">Why data storytelling is so important&mdash;and why we're so bad at it</a>
+	</section>
+
+	<section>
+	  <h3>Product development</h3>	  
+	  <li class='fragment'>
+	    A common goal in data science is product development,
+	  </li>
+
+	  <li class='fragment'>
+	    and customers often experience data visually.
+	  </li>
+	  
+	  <li class='fragment'>
+	    So, instead of communicating hypotheses and interpretations
+	  </li>
+	  
+	  <li class='fragment'>
+	    visualization can bear roles like navigation and uptake.
+	  </li>
+
+	  <li class='fragment'>
+	    This again emphasizes simplicity and clarity,
+	  </li>
+
+	  <li class='fragment'>
+	    but likewise a need for natural interaction,
+	  </li>
+
+	  <li class='fragment'>
+	    i.e., users uptake may improve if instructions are unnecessary.
+	  </li>
+
+	  <li class='fragment'>
+	    We'll touch on these topics more in <a href="ch13.html">chapter 13</a>,
+	  </li>
+
+	  <li class='fragment'>
+	    when we consider generally the role of design in data science.
+	  </li>
+	  
+	</section>
+	
+	<section>
+	  <h3>Recap</h3>
+
+	  <li class='fragment'>
+	    Depicting data visually fulfills a variety of purposes,
+	  </li>
+	  
+	  <li class='fragment'>
+	    from data exploration and intuitions development,
+	  </li>
+
+	  <li class='fragment'>
+	    to descriptive storytelling through infographics,
+	  </li>
+	  
+	  <li class='fragment'>
+	    to expressions of analyses and interpretations of results,
+	  </li>
+
+	  <li class='fragment'>
+	    and even web-based, interactive products development.
+	  </li>
+
+	  <li class='fragment'>
+	    Regardless of purpose, there are key qualities for success,
+	  </li>	  
+
+	  <li class='fragment'>
+	    such as clarity, simplicity, and truth of representation.
+	  </li>	  	  
+	  <br>
+	  <ul>
+	    <li class='fragment'> Next time: <a href="./ch11.html">Modeling</a>
+	      <ul>
+		<li class='fragment'>
+		  Does data follow a pattern or emerge from a process?
+		</li>		
+		<li class='fragment'>
+		  What is hypothesis testing?
+		</li>
+		<li class='fragment'>
+		  How do math, stats, algorithms, and machine learning all fit?
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>	
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>
