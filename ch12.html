@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Chapter 12</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="./css/reveal.css">
+    <link rel="stylesheet" href="./css/theme/whiteNight.css" id="theme">
+    <!-- <link rel="stylesheet" href="./css/print/pdf.css"> -->
+  </head>
+  
+  <style type="text/css">
+    section { text-align: left; }
+  </style>
+  
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+	<section>
+	  <h3>Classification</h3>
+	  <center>
+	    <a href="https://en.wikipedia.org/wiki/Precision_and_recall">
+	      <img src="./images/precisionrecall.jpg" alt=" " style="width: 50%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>
+	  <div style="width: 100%; overflow: hidden;">
+	    <div style="width: 400px; float: left;">
+	      <medium>
+		<a href="http://www.pages.drexel.edu/~jnl47/">Jeremy Leipzig</a><br>
+	      </medium>
+	      <small>
+				
+		Department of Information Science <br>
+		College of Computing and Informatics <br>
+		Drexel University
+	      </small>
+	    </div>
+	    <div style="margin-left: 420px;">
+	      <medium>
+		<a href="index.html">Introduction to data science</a><br>
+	      </medium>
+	      <small>
+		Spring, 2018 <br>
+		<a href="syllabus.pdf">Syllabus</a><br>
+	      </small>
+	    </div>
+	  </div>
+	</section>
+
+	<section>
+	  <h3>Common themes</h3>
+
+	  <li class='fragment'>
+	    Classifiers allow machines to distinguish between types,
+	  </li>
+	  
+	  <li class='fragment'>
+	    and are trained/evaluated with &quot;gold standard&quot; data
+	  </li>
+
+	  <li class='fragment'>
+	    using a variety of &quot;confusion&quot; metrics.
+	  </li>	  
+      
+
+	  <li class='fragment'>
+	    While bad models can make bad classifiers,
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    it is just as if not more import 
+	  </li>
+
+	  <li class='fragment'>
+	    to have a &quot;gold standard&quot; truth of highest quality.
+	  </li>
+	  
+	  <li class='fragment'>
+	    data can often be confounded
+	  </li>
+	</section>
+	
+	<section>
+	  <h3>What is classification?</h3>
+	  
+	  <li class='fragment'>
+	    While modeling might be focused on why something happened,
+	  </li>
+	  <li class='fragment'>
+	    classification asks &quot;what type of thing is this?&quot;
+	  </li>
+	  <li class='fragment'>
+	    So, the goal is to categorize individual observations,
+	  </li>
+	  <li class='fragment'>
+	    e.g., what is the blood type of individual X?
+	  </li>
+	  <li class='fragment'>
+	    Since target categories are known a-priori, 
+	  </li>
+	  <li class='fragment'>
+	    i.e., existing categorical knowledge is used for guidance,
+	  </li>
+	  <li class='fragment'>
+	    classification is considered a supervised learning task,
+	  </li>
+	  <li class='fragment'>
+	    whose unsupervised analogue would be clustering.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Binary classification</h3>
+
+	  <li class='fragment'>
+	    The simplest form chooses one of two categories,
+	  </li>
+	  <li class='fragment'>
+	    abstractly, positive and negative,
+	  </li>
+	  <li class='fragment'>
+	    like what a SPAM filter does with an in-box.
+	  </li>
+	  <li class='fragment'>	    
+	    Naturally, binary classification is easiest to accomplish,
+	  </li>
+	  <li class='fragment'>
+	    and has the simplest quantification for success,
+	  </li>
+	  <li class='fragment'>	    
+	    which is succinctly described by the <a href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a>.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>The confusion matrix</h3>	  
+	  <li class='fragment'>
+	    &quot;Gold standard,&quot; truth-known data allows classifier assessment,
+	  </li>
+	  <li class='fragment'>
+	    whether for binary or more-complex classification problems,
+	  </li>
+	  <li class='fragment'>
+	    but the confusion matrix is particular to binary classification,
+	  </li>	  
+	  <br>
+	  <ul>
+	    <li class='fragment'> For an observation, e.g., an email, there are four outcomes:
+	      <ul>
+		<li class='fragment'>
+		  True positive (TP)&mdash;Gmail saved you from a computer virus.
+		</li>
+		<li class='fragment'>
+		  False positive (FP)&mdash;Sorry, I never got the meeting's message!
+		</li>
+		<li class='fragment'>
+		  True negative (TN)&mdash;You agreed to attend the meeting.
+		</li>
+		<li class='fragment'>
+		  False negative (FN)&mdash;Instead of $1 million you got a virus.
+		</li>
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>
+
+	<section>
+	  <h3>A matrix describing classifier confusion</h3>
+	  <center>
+	    <a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">
+	      <img src="./images/confusion.png" alt=" " style="width: 80%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>	  
+	</section>
+
+	<section>
+	  <h3>Required reading: <a href="http://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/">Confusing terminology (hopefully not)</a></h3>
+	</section>
+	
+	<section>
+	  <h3>Summarized assessments</h3>
+
+	  <li class='fragment'>
+	    Tallying the four outcomes is a coarse assessment,
+	  </li>	  	  
+
+	  <li class='fragment'>
+	    and it's generally more important to summarize with rates.
+	  </li>
+	  
+	  <li class='fragment'>
+	    Two commonly used rates are precision (P) and recall (R).
+	  </li>	  	  
+
+	  <li class='fragment'>
+	    Precision is the &quot;positive predictive value,&quot;
+	  </li>
+
+	  <li class='fragment'>
+	    and is the probability that a positive prediction is correct,
+	  </li>  
+	  
+	  <li class='fragment'>
+	    while recall measures a classifier's &quot;sensitivity&quot;,
+	  </li>
+
+	  <li class='fragment'>
+	    or the probability of detecting a positive instance.
+	  </li>
+
+	  <li class='fragment'>
+	    Sometimes it's important to balance the two, 
+	  </li>
+
+	  <li class='fragment'>
+	    which is why the combined, <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a> exists:
+	    <script type="math/tex; mode=display">
+	      F_1 = \frac{2}{\frac{1}{P} + \frac{1}{R}} = 2\frac{P\cdot R}{P + R}
+	    </script>	  	    
+	  </li>	  
+
+	  <li class='fragment'>
+	    From <a href="ch09.html">description</a>, what kind of an average is this? Why?
+	  </li>
+	  
+	</section>
+
+	<section>
+	  <h3>What about accuracy?</h3>
+
+	  <li class='fragment'>
+	    Amid these summaries we actually haven't mentioned accuracy:
+	    <script type="math/tex; mode=display">
+	      Acc = \frac{TP + TN}{TP + TP + FP + FN}
+	    </script>
+	  </li>	  	  
+
+	  <li class='fragment'>
+	    which measure the overall number of correct assessments.
+	  </li>
+	  
+	  <li class='fragment'>
+	    With classifiers, accuracy can unfortunately be misleading
+	  </li>	  	  
+
+	  <li class='fragment'>
+	    and is generally not the best metric for model tuning.
+	  </li>
+
+	  <li class='fragment'>
+	    <a href="https://www.cancer.gov/types/breast/risk-fact-sheet">Estimates</a> hold 1 in 8 women will develop breast cancer,
+	  </li>  
+	  
+	  <li class='fragment'>
+	    so a classifier that flatly predicts all women born won't,
+	  </li>
+
+	  <li class='fragment'>
+	    will score an 88% accuracy, which is much better than half!
+	  </li>
+
+	  <li class='fragment'>
+	    But this is useless, with no positive predictive power,
+	  </li>
+
+	  <li class='fragment'>
+	    which is masked by a class imbalance of positives at 12%.
+	  </li>	  
+
+	  <li class='fragment'>
+	    So, metrics should be considered in the context of problems
+	  </li>
+
+	  <li class='fragment'>
+	    and it is best to loot at and understand all of them.
+	  </li>
+	</section>
+
+	<section>
+	  <h3>Required reading: <a href="http://machinelearningmastery.com/classification-accuracy-is-not-enough-more-performance-measures-you-can-use/">Accuracy is not enough</a></h3>	  
+	</section>
+
+	<section>
+	  <h3>Parameter tuning</h3>
+
+	  <li class='fragment'>
+	    Most times, classifiers have parameters and can be tuned.
+	  </li>	  	  
+
+	  <li class='fragment'>
+	    These might be probabilistic thresholds for prediction,
+	  </li>
+	  
+	  <li class='fragment'>
+	    or more physical quantities that describe model nuances.
+	  </li>	  	  
+
+	  <li class='fragment'>
+	    Combined metrics, like F1, help to choose best parameters,
+	  </li>
+
+	  <li class='fragment'>
+	    and the <a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">receiver operating characteristic</a> (ROC) curve
+	  </li>  
+	  
+	  <li class='fragment'>
+	    plots the True Positive vs False Positive rates.
+	  </li>
+
+	  <li class='fragment'>
+	    A perfect model has 100% TPs and 0% FPs,
+	  </li>
+
+	  <li class='fragment'>
+	    which is in the top left corner of the ROC, but
+	  </li>
+
+	  <li class='fragment'>
+	    the ROC also describes overall model performance
+	  </li>	  
+
+	  <li class='fragment'>
+	    through the Area Under the Curve (AUC),
+	  </li>
+
+	  <li class='fragment'>
+	    which has a maximum of 1 for a perfect classifier,
+	  </li>
+
+	  <li class='fragment'>
+	    and generally indicates a model's tunability.
+	  </li>	  
+	  
+	</section>
+
+	<section>
+	  <h3>Required reading: <a href="http://fouryears.eu/2011/10/12/roc-area-under-the-curve-explained/">ROCs and AUCs</a></h3>
+	  <center>
+	    <a href="http://www.qualitydigest.com/inside/quality-insider-article/more-beware-about-tukey-control-charts.html#">
+	      <img src="./images/ROC.jpg" alt=" " style="width: 48%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	    <a href="https://www.kaggle.com/yuansun/santander-customer-satisfaction/lb-0-84-for-starters">
+	      <img src="./images/ROC_grades.jpg" alt=" " style="width: 48%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>	  
+	</section>
+	
+	<section>
+	  <h3>Complex classification problems</h3>
+
+	  <li class='fragment'>
+	    Binary classification is a powerful and simple framework,
+	  </li>
+	  
+	  <li class='fragment'>
+	    and is extended by multi-class classification,
+	  </li>
+
+	  <li class='fragment'>
+	    where there exists more than two labels from which to choose,
+	  </li>	  
+
+	  <li class='fragment'>
+	    as is the case in language classification.
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    Multi-class is distinct from multi-label classification,
+	  </li>
+
+	  <li class='fragment'>
+	    where multiple labels may be applied to individual instances,
+	  </li>
+
+	  <li class='fragment'>
+	    e.g., tag blog posts with any of news, sports, politics, etcetera.
+	  </li>	  
+
+	  <li class='fragment'>
+	    Both multi-label and -class have different performance metrics,
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    and are generally harder to approach than binary classification,
+	  </li>	  
+
+	  <li class='fragment'>
+	    since there are a wider range of possibilities.
+	  </li>	  
+	  
+	</section>
+	
+	<section>
+	  <h3>Is machine classification objective?</h3>
+
+	  <li class='fragment'>
+	    Supervised machine learning algorithms are built on data,
+	  </li>
+	  
+	  <li class='fragment'>
+	    so it may be reasonable to assume that these are objective.
+	  </li>
+
+	  <li class='fragment'>
+	    However, an algorithm is only as strong as its data,
+	  </li>	  
+
+	  <li class='fragment'>
+	    which can be incorrect or biased.
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    This leads to the adage <a href="https://en.wikipedia.org/wiki/Garbage_in,_garbage_out">garbage in, garbage out</a>,
+	  </li>
+
+	  <li class='fragment'>
+	    which refers to bad input data leading to similar output.
+	  </li>
+
+	  <li class='fragment'>
+	    However this is also the case with our cultural biases,
+	  </li>	  
+
+	  <li class='fragment'>
+	    which if present in social data as input
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    can result in <a href="https://www.youtube.com/watch?v=PGqr8fc6nEs">machines that discriminate</a>,
+	  </li>	  
+
+	  <li class='fragment'>
+	    i.e., carry unreasonable cultural biases forward.
+	  </li>	  
+
+	  <li class='fragment'>
+	    Quality data is paramount in classifier construction!
+	  </li>	  
+	  
+	</section>
+
+	<section>
+	  <h3>Required reading: <a href="http://www.nytimes.com/2015/07/10/upshot/when-algorithms-discriminate.html">Machine discrimination</a></h3>
+	  <center>
+	    <a href="http://quoteaddicts.com/topic/saying-garbage-in-garbage-out/">
+	      <img src="./images/gingout.jpg" alt=" " style="width: 70%;max-height: 100%;object-fit: contain;Float: center" />
+	    </a>
+	  </center>	  
+	</section>	
+	
+	<section>
+	  <h3>Recap</h3>
+
+	  <li class='fragment'>
+	    Classifiers allow machines to distinguish between types,
+	  </li>
+	  
+	  <li class='fragment'>
+	    and are trained/evaluated with &quot;gold standard&quot; data
+	  </li>
+
+	  <li class='fragment'>
+	    using a variety of &quot;confusion&quot; metrics.
+	  </li>	  
+
+	  <li class='fragment'>
+	    While bad models can make bad classifiers,
+	  </li>	  
+	  
+	  <li class='fragment'>
+	    it is just as if not more import 
+	  </li>
+
+	  <li class='fragment'>
+	    to have a &quot;gold standard&quot; truth of highest quality.
+	  </li>
+	  <br>
+	  <ul>
+	    <li class='fragment'> Next week: <a href="ch13.html">Design</a>
+	      <ul>
+		<li class='fragment'>
+		  understanding problem statements and customer needs,
+		</li>
+		<li class='fragment'>
+		  planning for an operational environment,
+		</li>
+		<li class='fragment'>
+		  and facilitating uptake through interactivity.
+		</li>		
+	      </ul>
+	    </li>
+	  </ul>
+
+	</section>	
+	
+      </div>
+
+    </div>
+    
+    <script src="./lib/js/head.min.js"></script>
+    <script src="./js/reveal.js"></script>
+
+    <script>
+
+      Reveal.initialize({
+      history: true,
+      transition: 'none',
+
+      math: {
+      // mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+      config: 'TeX-AMS_HTML-full'
+      },
+
+      dependencies: [
+      { src: './lib/js/classList.js' },
+      { src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+      { src: './plugin/math/math.js', async: true }
+      ]
+      });
+
+    </script>
+
+  </body>
+</html>
